@@ -11,14 +11,14 @@ function App() {
   });
   console.log(total);
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-4 bg-slate-700">
-      <div className="text-center">
+    <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-700">
+      <div className="text-white text-center">
         <h1 className="text-2xl">Investment calculator</h1>
         <p>this is a calculator for investing in a long term</p>
       </div>
-      <div className="flex sm:flex-row flex-col gap-4">
-        <PieChart data={chartData} />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Form />
+        <PieChart data={chartData} />
       </div>
     </main>
   );
