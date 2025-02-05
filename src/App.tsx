@@ -24,7 +24,6 @@ function App() {
     chartData: [],
   });
 
-  console.log('totalInterest', calculatedInvestment.totalInterest);
   return (
     <AppContext.Provider value={{ setInvestment: setCalculatedInvestment }}>
       <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-700">

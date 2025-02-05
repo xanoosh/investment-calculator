@@ -1,23 +1,23 @@
-export default function calculateInvestment(
-  initialInvestment?: number,
-  yearlyInvestment?: number,
-  years?: number[],
-  interestRate?: number[]
-) {
-  if (!initialInvestment || !yearlyInvestment || !years || !interestRate) {
-    return { totalInterest: 0, chartData: [] };
-  }
+import convertFormData from './convertFormData';
 
+export default function calculateInvestment(formData: {
+  ['Initial investment']: string;
+  ['Annual investment']: string;
+  years: number[];
+  ['Interest rate']: number[];
+}) {
+  const { initialInvestment, interestRate, years, annualInvestment } =
+    convertFormData(formData);
   let investmentBase = initialInvestment;
   let totalInterest = 0;
-  for (let i = 0; i < years[0]; i++) {
-    totalInterest += investmentBase * (interestRate[0] / 100);
+  for (let i = 0; i < years; i++) {
+    totalInterest += investmentBase * (interestRate / 100);
     investmentBase += totalInterest;
-    investmentBase += yearlyInvestment;
+    investmentBase += annualInvestment;
   }
 
   const startingAmount = initialInvestment;
-  const totalContributions = yearlyInvestment * years[0];
+  const totalContributions = annualInvestment * years;
 
   const chartData = [
     {

@@ -14,17 +14,12 @@ export default function Form() {
       className="flex flex-col gap-2"
       onSubmit={handleSubmit((data) => {
         console.log(data);
-        const calculatedInvestmentResult = calculateInvestment(
-          Number(data.initialInvestment),
-          Number(data.anualInvestment),
-          data.years,
-          data.interestRate
-        );
+        const calculatedInvestmentResult = calculateInvestment(data);
         setInvestment(calculatedInvestmentResult);
       })}
     >
-      <Input name="initialInvestment" control={control} defaultValue="1000" />
-      <Input name="anualInvestment" control={control} defaultValue="100" />
+      <Input name="Initial investment" control={control} defaultValue="1000" />
+      <Input name="Annual investment" control={control} defaultValue="100" />
       <SliderComponent
         name="years"
         displayValue
@@ -32,7 +27,7 @@ export default function Form() {
         defaultValue={[10]}
       />
       <SliderComponent
-        name="interestRate"
+        name="Interest rate"
         displayValue
         control={control}
         defaultValue={[5]}
