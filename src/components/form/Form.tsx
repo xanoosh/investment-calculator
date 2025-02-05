@@ -3,7 +3,7 @@ import SliderComponent from './formElements/Slider';
 import Input from './formElements/Input';
 import calculateInvestment from '../../utils/calculateInvestment';
 import { useContext } from 'react';
-import { AppContext } from '../../App';
+import { AppContext } from '../../context/AppContext';
 
 export default function Form() {
   const { control, handleSubmit } = useForm();
