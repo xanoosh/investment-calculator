@@ -6,7 +6,7 @@ interface AppContextType {
   setInvestment: React.Dispatch<
     React.SetStateAction<{
       totalInterest: number;
-      chartData: never[];
+      chartData: { id: string; label: string; value: number }[];
     }>
   >;
 }
@@ -16,7 +16,10 @@ export const AppContext = createContext<AppContextType>({
 });
 
 function App() {
-  const [calculatedInvestment, setCalculatedInvestment] = useState({
+  const [calculatedInvestment, setCalculatedInvestment] = useState<{
+    totalInterest: number;
+    chartData: { id: string; label: string; value: number }[];
+  }>({
     totalInterest: 0,
     chartData: [],
   });
@@ -31,8 +34,13 @@ function App() {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <Form />
-          {calculatedInvestment.chartData.length && (
+          {calculatedInvestment.chartData.length > 0 ? (
             <PieChart data={calculatedInvestment.chartData} />
+          ) : (
+            <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center items-center">
+              <p className="text-lg font-bold">no data available</p>
+              <small>please provide all input data for calculation</small>
+            </div>
           )}
         </div>
       </main>

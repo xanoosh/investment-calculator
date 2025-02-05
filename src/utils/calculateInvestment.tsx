@@ -13,6 +13,7 @@ export default function calculateInvestment(
   for (let i = 0; i < years[0]; i++) {
     totalInterest += investmentBase * (interestRate[0] / 100);
     investmentBase += totalInterest;
+    investmentBase += yearlyInvestment;
   }
 
   const startingAmount = initialInvestment;
