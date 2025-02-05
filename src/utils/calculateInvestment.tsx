@@ -1,37 +1,40 @@
-export default function calculateInvestment({
-  initialInvestment,
-  monthlyInvestment,
-  years,
-  interestRate,
-}: {
-  initialInvestment: number;
-  monthlyInvestment: number;
-  years: number;
-  interestRate: number;
-}) {
-  let total = initialInvestment;
-  for (let i = 0; i < years; i++) {
-    total += total * (interestRate / 100);
-    total += monthlyInvestment * 12;
+export default function calculateInvestment(
+  initialInvestment?: number,
+  yearlyInvestment?: number,
+  years?: number[],
+  interestRate?: number[]
+) {
+  if (!initialInvestment || !yearlyInvestment || !years || !interestRate) {
+    return { totalInterest: 0, chartData: [] };
   }
+
+  let investmentBase = initialInvestment;
+  let totalInterest = 0;
+  for (let i = 0; i < years[0]; i++) {
+    totalInterest += investmentBase * (interestRate[0] / 100);
+    investmentBase += totalInterest;
+  }
+
+  const startingAmount = initialInvestment;
+  const totalContributions = yearlyInvestment * years[0];
 
   const chartData = [
     {
       id: 'Starting Amount',
       label: 'Starting Amount',
-      value: 300,
+      value: startingAmount,
     },
     {
       id: 'Total Contributions',
       label: 'Total Contributions',
-      value: 700,
+      value: totalContributions,
     },
     {
       id: 'Total Interest',
       label: 'Total Interest',
-      value: 750,
+      value: Math.round(totalInterest),
     },
   ];
 
-  return { total, chartData };
+  return { totalInterest, chartData };
 }

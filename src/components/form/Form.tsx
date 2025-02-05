@@ -1,26 +1,35 @@
 import { useForm } from 'react-hook-form';
 import SliderComponent from './formElements/Slider';
 import Input from './formElements/Input';
+import calculateInvestment from '../../utils/calculateInvestment';
+import { useContext } from 'react';
+import { AppContext } from '../../App';
 
 export default function Form() {
   const { control, handleSubmit } = useForm();
+  const { setInvestment } = useContext(AppContext);
 
   return (
     <form
       className="flex flex-col gap-2"
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit((data) => {
+        console.log(data);
+        const calculatedInvestmentResult = calculateInvestment(
+          Number(data.initialInvestment),
+          Number(data.anualInvestment),
+          data.years,
+          data.interestRate
+        );
+        setInvestment(calculatedInvestmentResult);
+      })}
     >
-      <Input
-        name="initialInvestment"
-        control={control}
-        defaultValue="initial"
-      />
-      <Input name="anualInvestment" control={control} defaultValue="annual" />
+      <Input name="initialInvestment" control={control} defaultValue="1000" />
+      <Input name="anualInvestment" control={control} defaultValue="100" />
       <SliderComponent
         name="years"
         displayValue
         control={control}
-        defaultValue={[30]}
+        defaultValue={[10]}
       />
       <SliderComponent
         name="interestRate"
