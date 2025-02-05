@@ -1,5 +1,5 @@
 import { ResponsivePie } from '@nivo/pie';
-import AspectRatioWrapper from './AspectRatioWrapper';
+import AspectRatioWrapper from '../AspectRatioWrapper';
 
 interface PieChartData {
   id: string;

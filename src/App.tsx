@@ -1,5 +1,5 @@
-import Form from './components/Form';
-import PieChart from './components/PieChart';
+import Form from './components/form/Form';
+import PieChart from './components/investmentData/PieChart';
 import calculateInvestment from './utils/calculateInvestment';
 
 function App() {
