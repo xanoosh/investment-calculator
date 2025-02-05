@@ -1,13 +1,30 @@
 import { Slider } from 'radix-ui';
+import { useController } from 'react-hook-form';
+import { Control, FieldValues } from 'react-hook-form';
 
-const SliderComponent = () => (
-  <form>
+export default function SliderComponent({
+  name,
+  control,
+}: {
+  name: string;
+  control: Control<FieldValues>;
+}) {
+  const { field } = useController({
+    name,
+    control,
+    rules: { required: true },
+  });
+  return (
     <Slider.Root
       className="relative flex h-5 w-[200px] touch-none select-none items-center"
       defaultValue={[30]}
       max={80}
       min={1}
+      name={name}
       step={1}
+      value={field.value}
+      onValueChange={field.onChange}
+      ref={field.ref}
     >
       <Slider.Track className="relative h-[3px] grow rounded-full bg-blackA7">
         <Slider.Range className="absolute h-full rounded-full bg-white" />
@@ -17,7 +34,5 @@ const SliderComponent = () => (
         aria-label="Volume"
       />
     </Slider.Root>
-  </form>
-);
-
-export default SliderComponent;
+  );
+}
