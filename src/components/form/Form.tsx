@@ -10,10 +10,24 @@ export default function Form() {
       className="flex flex-col gap-2"
       onSubmit={handleSubmit((data) => console.log(data))}
     >
-      <Input name="initialInvestment" control={control} />
-      <Input name="anualInvestment" control={control} />
-      <SliderComponent name="years" control={control} />
-      <SliderComponent name="interestRate" control={control} />
+      <Input
+        name="initialInvestment"
+        control={control}
+        defaultValue="initial"
+      />
+      <Input name="anualInvestment" control={control} defaultValue="annual" />
+      <SliderComponent
+        name="years"
+        displayValue
+        control={control}
+        defaultValue={[30]}
+      />
+      <SliderComponent
+        name="interestRate"
+        displayValue
+        control={control}
+        defaultValue={[5]}
+      />
 
       <input
         className="bg-sky-700 hover:bg-sky-600 text-white py-1 px-3 rounded-sm"
