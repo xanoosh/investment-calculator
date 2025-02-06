@@ -18,12 +18,15 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
-        colors={['#ffc8dd', '#cdb4db', '#bde0fe']}
+        colors={['#bde0fe', '#ffc8dd', '#cdb4db']}
         borderColor={{
           from: 'color',
           modifiers: [['darker', 0.2]],
         }}
         // enableArcLinkLabels={false}
+        arcLabel={(e) =>
+          e.value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ' ')
+        }
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={20}
         arcLinkLabelsSkipAngle={2}

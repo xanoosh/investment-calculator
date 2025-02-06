@@ -28,6 +28,11 @@ export default function calculateInvestment(
   const total = Math.round(startingAmount + totalContributions + totalInterest);
   const chartData = [
     {
+      id: 'Total Interest',
+      label: 'Total Interest',
+      value: Math.round(totalInterest),
+    },
+    {
       id: 'Starting Amount',
       label: 'Starting Amount',
       value: startingAmount,
@@ -37,11 +42,9 @@ export default function calculateInvestment(
       label: 'Total Contributions',
       value: totalContributions,
     },
-    {
-      id: 'Total Interest',
-      label: 'Total Interest',
-      value: Math.round(totalInterest),
-    },
   ];
-  return { total, chartData };
+  return {
+    total,
+    chartData: chartData.filter(({ value }: { value: number }) => value > 0),
+  };
 }

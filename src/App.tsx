@@ -33,7 +33,6 @@ function App() {
       <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-800">
         <div className="text-white text-center">
           <h1 className="text-2xl">Investment calculator</h1>
-          <p>this is a calculator for investing in a long term</p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:w-auto w-4/5">
           <Form />
