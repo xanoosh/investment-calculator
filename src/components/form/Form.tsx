@@ -12,8 +12,7 @@ export default function Form() {
   return (
     <form
       className="flex flex-col gap-2"
-      onSubmit={handleSubmit((data) => {
-        console.log(data);
+      onChange={handleSubmit((data) => {
         const calculatedInvestmentResult = calculateInvestment(data);
         setInvestment(calculatedInvestmentResult);
       })}
@@ -31,12 +30,6 @@ export default function Form() {
         displayValue
         control={control}
         defaultValue={[5]}
-      />
-
-      <input
-        className="bg-sky-700 hover:bg-sky-600 text-white py-1 px-3 rounded-sm"
-        type="submit"
-        value="calculate"
       />
     </form>
   );

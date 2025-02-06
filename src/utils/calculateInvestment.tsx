@@ -24,6 +24,7 @@ export default function calculateInvestment(
   const startingAmount = initialInvestment;
   const totalContributions = annualInvestment * years;
 
+  const total = Math.round(startingAmount + totalContributions + totalInterest);
   const chartData = [
     {
       id: 'Starting Amount',
@@ -41,6 +42,5 @@ export default function calculateInvestment(
       value: Math.round(totalInterest),
     },
   ];
-
-  return { totalInterest, chartData };
+  return { total, chartData };
 }

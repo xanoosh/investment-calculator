@@ -23,7 +23,7 @@ export default function SliderComponent({
     <div>
       <Label.Root
         className="text-[15px] font-medium leading-[35px] text-white"
-        htmlFor={name}
+        htmlFor={field.name}
       >
         {name} {displayValue && `: ${field.value}`}
       </Label.Root>
@@ -33,6 +33,7 @@ export default function SliderComponent({
         max={80}
         min={1}
         name={name}
+        id={field.name}
         step={1}
         value={field.value}
         onValueChange={field.onChange}

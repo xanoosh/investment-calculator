@@ -5,11 +5,27 @@ import { AppContext } from './context/AppContext';
 
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
-    totalInterest: number;
+    total: number;
     chartData: { id: string; label: string; value: number }[];
   }>({
-    totalInterest: 0,
-    chartData: [],
+    total: 3343,
+    chartData: [
+      {
+        id: 'Starting Amount',
+        label: 'Starting Amount',
+        value: 1000,
+      },
+      {
+        id: 'Total Contributions',
+        label: 'Total Contributions',
+        value: 1000,
+      },
+      {
+        id: 'Total Interest',
+        label: 'Total Interest',
+        value: 1343,
+      },
+    ],
   });
 
   return (

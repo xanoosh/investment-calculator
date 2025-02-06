@@ -3,7 +3,7 @@ import { createContext } from 'react';
 interface AppContextType {
   setInvestment: React.Dispatch<
     React.SetStateAction<{
-      totalInterest: number;
+      total: number;
       chartData: { id: string; label: string; value: number }[];
     }>
   >;
