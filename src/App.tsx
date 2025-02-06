@@ -14,7 +14,7 @@ function App() {
 
   return (
     <AppContext.Provider value={{ setInvestment: setCalculatedInvestment }}>
-      <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-700">
+      <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-800">
         <div className="text-white text-center">
           <h1 className="text-2xl">Investment calculator</h1>
           <p>this is a calculator for investing in a long term</p>

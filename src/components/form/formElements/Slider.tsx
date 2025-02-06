@@ -38,7 +38,7 @@ export default function SliderComponent({
         onValueChange={field.onChange}
         ref={field.ref}
       >
-        <Slider.Track className="relative h-[3px] grow rounded-full bg-blackA7">
+        <Slider.Track className="relative h-[0.5rem] grow rounded-full bg-slate-700">
           <Slider.Range className="absolute h-full rounded-full bg-white" />
         </Slider.Track>
         <Slider.Thumb
