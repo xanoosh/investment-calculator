@@ -15,10 +15,11 @@ export default function calculateInvestment(
     convertFormData(formData);
   let investmentBase = initialInvestment;
   let totalInterest = 0;
+  let interestYearValue = 0;
   for (let i = 0; i < years; i++) {
-    totalInterest += investmentBase * (interestRate / 100);
-    investmentBase += totalInterest;
-    investmentBase += annualInvestment;
+    interestYearValue = investmentBase * (interestRate / 100);
+    totalInterest += interestYearValue;
+    investmentBase = investmentBase + interestYearValue + annualInvestment;
   }
 
   const startingAmount = initialInvestment;
