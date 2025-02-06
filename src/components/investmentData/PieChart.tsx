@@ -9,7 +9,7 @@ interface PieChartData {
 
 export default function PieChart({ data }: { data: PieChartData[] }) {
   return (
-    <AspectRatioWrapper ratio={1}>
+    <AspectRatioWrapper ratio={16 / 10}>
       <ResponsivePie
         data={data}
         margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
@@ -18,12 +18,19 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
-        colors={{ scheme: 'pastel1' }}
+        colors={['#ffc8dd', '#cdb4db', '#bde0fe']}
         borderColor={{
           from: 'color',
           modifiers: [['darker', 0.2]],
         }}
-        enableArcLinkLabels={false}
+        // enableArcLinkLabels={false}
+        arcLinkLabelsColor={{ from: 'color' }}
+        arcLabelsSkipAngle={20}
+        arcLinkLabelsSkipAngle={2}
+        arcLinkLabelsTextColor="#fff"
+        arcLinkLabelsOffset={-2}
+        arcLinkLabelsDiagonalLength={8}
+        arcLinkLabelsThickness={2}
       />
     </AspectRatioWrapper>
   );

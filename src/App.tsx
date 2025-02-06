@@ -35,10 +35,12 @@ function App() {
           <h1 className="text-2xl">Investment calculator</h1>
           <p>this is a calculator for investing in a long term</p>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:w-auto w-4/5">
           <Form />
           {calculatedInvestment.chartData.length > 0 ? (
-            <PieChart data={calculatedInvestment.chartData} />
+            <div className="md:col-span-2">
+              <PieChart data={calculatedInvestment.chartData} />
+            </div>
           ) : (
             <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center items-center">
               <p className="text-lg font-bold">no data available</p>
