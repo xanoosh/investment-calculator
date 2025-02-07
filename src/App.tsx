@@ -2,13 +2,14 @@ import Form from './components/form/Form';
 import PieChart from './components/investmentData/PieChart';
 import { useState } from 'react';
 import { AppContext } from './context/AppContext';
+import Details from './components/investmentData/Details';
 
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
-    total: number;
+    details: { total: number };
     chartData: { id: string; label: string; value: number }[];
   }>({
-    total: 3343,
+    details: { total: 3343 },
     chartData: [
       {
         id: 'Starting Amount',
@@ -34,16 +35,19 @@ function App() {
         <div className="text-white text-center">
           <h1 className="text-2xl">Investment calculator</h1>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:w-auto w-4/5">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 w-4/5">
           <Form />
           {calculatedInvestment.chartData.length > 0 ? (
             <div className="md:col-span-2">
               <PieChart data={calculatedInvestment.chartData} />
+              <Details details={calculatedInvestment.details} />
             </div>
           ) : (
             <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center items-center">
-              <p className="text-lg font-bold">no data available</p>
-              <small>please provide all input data for calculation</small>
+              <p className="text-lg font-bold">No data available</p>
+              <small>
+                please provide all relevant input data for calculation
+              </small>
             </div>
           )}
         </div>

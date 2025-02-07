@@ -44,7 +44,7 @@ export default function calculateInvestment(
     },
   ];
   return {
-    total,
+    details: { total },
     chartData: chartData.filter(({ value }: { value: number }) => value > 0),
   };
 }
