@@ -21,6 +21,12 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         activeOuterRadiusOffset={8}
         borderWidth={1}
         colors={['#bde0fe', '#ffc8dd', '#cdb4db']}
+        // colors={['#06d6a0', '#ef476f', '#ffd166']}
+        // colors={['#BDE0FE', '#FFD1CF', '#FBFFBD']}
+        // colors={[' #9381ff', '#b8b8ff', '#e8e8ff']}
+        // colors={['#9381ff', '#b8b8ff', '#f8f7ff']}
+        // colors={['#06d6a0', '#ffa1ad', '#ffd166']}
+        // colors={['#ffa1ad ', '#a1ffeb ', '#ffd1a1 ']}
         borderColor={{
           from: 'color',
           modifiers: [['darker', 0.2]],
@@ -31,7 +37,7 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         }
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={20}
-        arcLinkLabelsSkipAngle={5}
+        arcLinkLabelsSkipAngle={15}
         arcLinkLabelsTextColor="#fff"
         arcLinkLabelsOffset={-2}
         arcLinkLabelsDiagonalLength={8}
