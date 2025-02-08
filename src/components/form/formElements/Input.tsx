@@ -11,13 +11,23 @@ export default function Input({
   control: Control<FieldValues>;
   defaultValue?: string;
 }) {
-  const { field } = useController({
+  const { field, fieldState } = useController({
     name,
     control,
-    rules: { required: true },
+    rules: {
+      pattern: {
+        value: /^[0-9]+$/,
+        message: 'Number must be 0 or higher',
+      },
+      validate: (value: string) => {
+        if (isNaN(Number(value)) || value === '') {
+          return 'Please enter a number';
+        }
+        return true;
+      },
+    },
     defaultValue,
   });
-
   return (
     <div className="flex flex-col gap-1">
       <Label.Root
@@ -35,8 +45,12 @@ export default function Input({
         name={field.name}
         id={name}
         ref={field.ref}
-        min={0}
       />
+      {fieldState.error && (
+        <span className="text-rose-400 text-[12px]">
+          {fieldState.error.message}
+        </span>
+      )}
     </div>
   );
 }

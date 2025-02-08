@@ -45,11 +45,13 @@ function App() {
               <Details details={calculatedInvestment.details} />
             </div>
           ) : (
-            <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center items-center">
-              <p className="text-lg font-bold">No data available</p>
-              <small>
-                please provide all relevant input data for calculation
-              </small>
+            <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center gap-6 items-center text-center md:col-span-7">
+              <p className="text-2xl font-bold">Some fields are missing.</p>
+              <p className="text-sm">
+                Either initial or annual investment should be a positive number.
+                <br />
+                Please provide all relevant input data for calculation.
+              </p>
             </div>
           )}
         </div>
