@@ -30,12 +30,14 @@ export default function Form() {
           displayValue
           control={control}
           defaultValue={[10]}
+          maxValue={50}
         />
         <SliderComponent
           name="Interest rate"
           displayValue
           control={control}
           defaultValue={[5]}
+          maxValue={30}
         />
       </form>
     </FocusTrap>

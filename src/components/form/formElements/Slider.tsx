@@ -7,11 +7,13 @@ export default function SliderComponent({
   control,
   defaultValue,
   displayValue = false,
+  maxValue,
 }: {
   name: string;
   control: Control<FieldValues>;
   defaultValue?: number[];
   displayValue?: boolean;
+  maxValue?: number;
 }) {
   const { field } = useController({
     name,
@@ -30,7 +32,7 @@ export default function SliderComponent({
 
       <Slider.Root
         className="relative flex h-5 w-[200px] touch-none select-none items-center"
-        max={80}
+        max={maxValue || 80}
         min={1}
         name={name}
         id={field.name}
