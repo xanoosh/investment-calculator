@@ -8,12 +8,14 @@ export default function SliderComponent({
   defaultValue,
   displayValue = false,
   maxValue,
+  symbol,
 }: {
   name: string;
   control: Control<FieldValues>;
   defaultValue?: number[];
   displayValue?: boolean;
   maxValue?: number;
+  symbol?: string;
 }) {
   const { field } = useController({
     name,
@@ -27,7 +29,8 @@ export default function SliderComponent({
         className="text-[15px] font-medium leading-[35px] text-white"
         htmlFor={field.name}
       >
-        {name} {displayValue && `: ${field.value}`}
+        {name} {displayValue ? `: ${field.value}` : null}
+        {symbol ? symbol : null}
       </Label.Root>
 
       <Slider.Root

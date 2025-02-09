@@ -32,6 +32,7 @@ export default function Form() {
         control={control}
         defaultValue={[5]}
         maxValue={30}
+        symbol="%"
       />
     </form>
   );
