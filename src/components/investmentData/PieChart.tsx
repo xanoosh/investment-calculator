@@ -14,7 +14,7 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
     <AspectRatioWrapper ratio={largeScreen ? 16 / 10 : 1}>
       <ResponsivePie
         data={data}
-        margin={{ top: 20, right: 0, bottom: largeScreen ? 20 : 70, left: 20 }}
+        margin={{ top: 10, right: 0, bottom: largeScreen ? 20 : 70, left: 0 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
@@ -50,8 +50,8 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
                   anchor: 'bottom-left',
                   direction: 'column',
                   justify: false,
-                  translateX: 20,
-                  translateY: 70,
+                  translateX: 0,
+                  translateY: 0,
                   itemsSpacing: 3,
                   itemWidth: 100,
                   itemHeight: 18,

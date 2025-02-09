@@ -2,7 +2,7 @@ import Form from './components/form/Form';
 import PieChart from './components/investmentData/PieChart';
 import { useState } from 'react';
 import { AppContext } from './context/AppContext';
-import Details from './components/investmentData/Details';
+// import DetailsDialog from './components/investmentData/DetailsDialog';
 
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
@@ -28,6 +28,7 @@ function App() {
       },
     ],
   });
+  // const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <AppContext.Provider value={{ setInvestment: setCalculatedInvestment }}>
@@ -35,14 +36,15 @@ function App() {
         <div className="text-white text-center">
           <h1 className="text-2xl">Investment calculator</h1>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-10 w-9/10">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-10 w-9/10 max-w-4xl">
           <div className="md:col-span-3">
             <Form />
           </div>
           {calculatedInvestment.chartData.length > 0 ? (
             <div className="md:col-span-7">
               <PieChart data={calculatedInvestment.chartData} />
-              <Details details={calculatedInvestment.details} />
+              {/* <DetailsDialog open={dialogOpen} setOpen={setDialogOpen} /> */}
+              {/* <p>dialogopen : {dialogOpen ? 'yes' : 'no'}</p> */}
             </div>
           ) : (
             <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center gap-6 items-center text-center md:col-span-7">
