@@ -12,6 +12,7 @@
   "dependencies": {
     "@nivo/pie": "^0.88.0",
     "@radix-ui/react-aspect-ratio": "^1.1.1",
+    "@radix-ui/react-icons": "^1.3.2",
     "@tailwindcss/vite": "^4.0.3",
     "focus-trap-react": "^11.0.3",
     "radix-ui": "^1.1.2",

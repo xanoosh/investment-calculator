@@ -2,7 +2,9 @@ import Form from './components/form/Form';
 import PieChart from './components/investmentData/PieChart';
 import { useState } from 'react';
 import { AppContext } from './context/AppContext';
-// import DetailsDialog from './components/investmentData/DetailsDialog';
+import Dialog from './components/Dialog';
+import { FocusTrap } from 'focus-trap-react';
+import Details from './components/investmentData/Details';
 
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
@@ -28,36 +30,40 @@ function App() {
       },
     ],
   });
-  // const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <AppContext.Provider value={{ setInvestment: setCalculatedInvestment }}>
-      <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-800">
-        <div className="text-white text-center">
-          <h1 className="text-2xl">Investment calculator</h1>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-10 w-9/10 max-w-4xl">
-          <div className="md:col-span-3">
-            <Form />
+      <FocusTrap focusTrapOptions={{ allowOutsideClick: true }}>
+        <main className="flex flex-col items-center justify-center min-h-screen p-2 gap-8 bg-slate-800">
+          <div className="text-white text-center">
+            <h1 className="text-2xl">Investment calculator</h1>
           </div>
-          {calculatedInvestment.chartData.length > 0 ? (
-            <div className="md:col-span-7">
-              <PieChart data={calculatedInvestment.chartData} />
-              {/* <DetailsDialog open={dialogOpen} setOpen={setDialogOpen} /> */}
-              {/* <p>dialogopen : {dialogOpen ? 'yes' : 'no'}</p> */}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-10 w-9/10 max-w-4xl">
+            <div className="md:col-span-3">
+              <Form />
             </div>
-          ) : (
-            <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center gap-6 items-center text-center md:col-span-7">
-              <p className="text-2xl font-bold">Some fields are missing.</p>
-              <p className="text-sm">
-                Either initial or annual investment should be a positive number.
-                <br />
-                Please provide all relevant input data for calculation.
-              </p>
-            </div>
-          )}
-        </div>
-      </main>
+            {calculatedInvestment.chartData.length > 0 ? (
+              <div className="md:col-span-7 flex flex-col items-end">
+                <Dialog
+                  title="Investment Details"
+                  content={<Details investmentData={calculatedInvestment} />}
+                />
+                <PieChart data={calculatedInvestment.chartData} />
+              </div>
+            ) : (
+              <div className="border-1 p-4 text-white border-slate-600 rounded flex flex-col justify-center gap-6 items-center text-center md:col-span-7">
+                <p className="text-2xl font-bold">Some fields are missing.</p>
+                <p className="text-sm">
+                  Either initial or annual investment should be a positive
+                  number.
+                  <br />
+                  Please provide all relevant input data for calculation.
+                </p>
+              </div>
+            )}
+          </div>
+        </main>
+      </FocusTrap>
     </AppContext.Provider>
   );
 }
