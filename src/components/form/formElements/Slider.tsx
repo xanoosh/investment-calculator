@@ -31,7 +31,7 @@ export default function SliderComponent({
       </Label.Root>
 
       <Slider.Root
-        className="relative flex h-5 w-[200px] touch-none select-none items-center"
+        className="relative flex h-5 w-full touch-none select-none items-center"
         max={maxValue || 80}
         min={1}
         name={name}
