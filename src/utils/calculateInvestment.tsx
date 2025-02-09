@@ -29,17 +29,20 @@ export default function calculateInvestment(
   const chartData = [
     {
       id: 'Interest',
-      label: 'Compound interest of your investment',
+      label: 'Interest',
+      description: 'Compound interest of your investment',
       value: Math.round(totalInterest),
     },
     {
       id: 'Initial',
-      label: 'Initial investment',
+      label: 'Initial',
+      description: 'The amount you initially invested',
       value: startingAmount,
     },
     {
       id: 'Contributions',
-      label: 'Total contributions',
+      label: 'Contributions',
+      description: 'Total amount you contributed excluding initial investment',
       value: totalContributions,
     },
   ];

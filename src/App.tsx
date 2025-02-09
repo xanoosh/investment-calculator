@@ -9,23 +9,32 @@ import Details from './components/investmentData/Details';
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
     details: { total: number };
-    chartData: { id: string; label: string; value: number }[];
+    chartData: {
+      id: string;
+      label: string;
+      description: string;
+      value: number;
+    }[];
   }>({
     details: { total: 3343 },
     chartData: [
       {
-        id: 'Starting Amount',
-        label: 'Starting Amount',
+        id: 'Initial',
+        label: 'Initial',
+        description: 'The amount you initially invested',
         value: 1000,
       },
       {
-        id: 'Total Contributions',
-        label: 'Total Contributions',
+        id: 'Contributions',
+        label: 'Contributions',
+        description:
+          'Total amount you contributed excluding initial investment',
         value: 1000,
       },
       {
-        id: 'Total Interest',
-        label: 'Total Interest',
+        id: 'Interest',
+        label: 'Interest',
+        description: 'Compound interest of your investment',
         value: 1343,
       },
     ],

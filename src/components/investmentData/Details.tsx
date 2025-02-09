@@ -3,7 +3,12 @@ export default function Details({
 }: {
   investmentData: {
     details: { total: number };
-    chartData: { id: string; label: string; value: number }[];
+    chartData: {
+      id: string;
+      label: string;
+      description: string;
+      value: number;
+    }[];
   };
 }) {
   const formatNumber = (number: number) =>
@@ -13,15 +18,19 @@ export default function Details({
       <p className="text-white">
         Total investment value: {formatNumber(investmentData.details.total)}
       </p>
-      <p className="text-xs text-slate-300">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae,
-        perferendis? Consectetur exercitationem mollitia, quo.
-      </p>
-      <p className="text-white">Random value: 11 002 038</p>
-      <p className="text-xs text-slate-300">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae,
-        perferendis?
-      </p>
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+        {investmentData.chartData.map((data) => (
+          <div
+            key={data.id}
+            className="flex flex-col gap-1 p-2 bg-white/5 rounded-md"
+          >
+            <p className="text-white font-semibold">
+              {data.label}: {formatNumber(data.value)}
+            </p>
+            <p className="text-slate-300 text-xs">{data.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

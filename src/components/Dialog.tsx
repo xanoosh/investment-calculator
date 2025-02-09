@@ -11,7 +11,7 @@ export default function Dialog({ title, content }: DialogProps) {
   return (
     <DialogPrimitives.Root>
       <DialogPrimitives.Trigger asChild>
-        <button className="text-white ml-auto">
+        <button className="text-white ml-auto cursor-pointer">
           <Icons.InfoCircledIcon width={25} height={25} />
         </button>
       </DialogPrimitives.Trigger>
@@ -24,9 +24,9 @@ export default function Dialog({ title, content }: DialogProps) {
           </DialogPrimitives.Title>
           <DialogPrimitives.Content>{content}</DialogPrimitives.Content>
 
-          <DialogPrimitives.Close asChild autoFocus>
+          <DialogPrimitives.Close asChild>
             <button
-              className="absolute right-6 top-4 inline-flex items-center justify-center rounded-full text-white"
+              className="absolute right-6 top-4 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
               aria-label="Close"
             >
               <Icons.Cross2Icon width={25} height={25} />

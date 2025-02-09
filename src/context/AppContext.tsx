@@ -4,7 +4,12 @@ interface AppContextType {
   setInvestment: React.Dispatch<
     React.SetStateAction<{
       details: { total: number };
-      chartData: { id: string; label: string; value: number }[];
+      chartData: {
+        id: string;
+        label: string;
+        description: string;
+        value: number;
+      }[];
     }>
   >;
 }
