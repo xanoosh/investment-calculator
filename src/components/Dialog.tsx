@@ -11,7 +11,7 @@ export default function Dialog({ title, content }: DialogProps) {
   return (
     <DialogPrimitives.Root>
       <DialogPrimitives.Trigger asChild>
-        <button className="text-white ml-auto cursor-pointer">
+        <button className="text-white ml-auto cursor-pointer rounded-full focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600">
           <Icons.InfoCircledIcon width={25} height={25} />
         </button>
       </DialogPrimitives.Trigger>

@@ -15,7 +15,7 @@ export default function Details({
     number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ' ');
   return (
     <div className="flex flex-col gap-2">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2 py-2 px-5 bg-white/5 rounded-md">
           <div className="flex justify-between text-white">
             <p className="font-semibold">Investment value:</p>

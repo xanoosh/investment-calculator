@@ -37,7 +37,7 @@ export default function Input({
         {name}
       </Label.Root>
       <input
-        className="bg-white py-1 px-3 border-1 rounded-sm"
+        className="bg-white py-1 px-3 border-1 rounded-sm focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600"
         type="number"
         onChange={field.onChange}
         onBlur={field.onBlur}

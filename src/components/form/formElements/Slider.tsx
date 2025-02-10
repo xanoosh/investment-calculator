@@ -48,7 +48,7 @@ export default function SliderComponent({
           <Slider.Range className="absolute h-full rounded-full bg-white" />
         </Slider.Track>
         <Slider.Thumb
-          className="block size-5 rounded-[10px] bg-white shadow-[0_2px_10px] shadow-blackA4 hover:bg-violet3 focus:shadow-[0_0_0_5px] focus:shadow-blackA5 focus:outline-none"
+          className="block size-5 rounded-[10px] bg-white shadow-[0_2px_10px] shadow-blackA4 focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600"
           aria-label="Volume"
         />
       </Slider.Root>
