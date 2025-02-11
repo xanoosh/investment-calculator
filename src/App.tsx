@@ -52,8 +52,9 @@ function App() {
               <Form />
             </div>
             {calculatedInvestment.chartData.length > 0 ? (
-              <div className="md:col-span-7 flex flex-col items-end">
+              <div className="md:col-span-7 flex flex-col items-end relative">
                 <Dialog
+                  triggerClasses="absolute top-0 right-0 z-10"
                   title="Investment Details"
                   content={<Details investmentData={calculatedInvestment} />}
                 />

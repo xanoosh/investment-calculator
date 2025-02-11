@@ -5,13 +5,20 @@ import { ReactNode } from 'react';
 interface DialogProps {
   title: string;
   content: ReactNode;
+  triggerClasses?: string;
 }
-export default function Dialog({ title, content }: DialogProps) {
+export default function Dialog({
+  title,
+  content,
+  triggerClasses,
+}: DialogProps) {
   console.log('Dialog rendered');
   return (
     <DialogPrimitives.Root>
       <DialogPrimitives.Trigger asChild>
-        <button className="text-white ml-auto cursor-pointer rounded-full focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600">
+        <button
+          className={`text-white ml-auto cursor-pointer rounded-full focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600 ${triggerClasses}`}
+        >
           <Icons.InfoCircledIcon width={25} height={25} />
         </button>
       </DialogPrimitives.Trigger>

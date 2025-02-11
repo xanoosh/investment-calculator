@@ -17,7 +17,7 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
       <ResponsivePie
         data={data}
         margin={{
-          top: 0,
+          top: largeScreen ? 20 : 10,
           right: 0,
           bottom: largeScreen ? 20 : 70,
           left: 0,
@@ -28,12 +28,6 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         activeOuterRadiusOffset={8}
         borderWidth={1}
         colors={['#bde0fe', '#ffc8dd', '#cdb4db']}
-        // colors={['#06d6a0', '#ef476f', '#ffd166']}
-        // colors={['#BDE0FE', '#FFD1CF', '#FBFFBD']}
-        // colors={[' #9381ff', '#b8b8ff', '#e8e8ff']}
-        // colors={['#9381ff', '#b8b8ff', '#f8f7ff']}
-        // colors={['#06d6a0', '#ffa1ad', '#ffd166']}
-        // colors={['#ffa1ad ', '#a1ffeb ', '#ffd1a1 ']}
         borderColor={{
           from: 'color',
           modifiers: [['darker', 0.2]],
@@ -48,9 +42,10 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         arcLinkLabelsDiagonalLength={8}
         arcLinkLabelsThickness={2}
         tooltip={({ datum: { label, value } }) => (
-          <div className="bg-slate-700 text-white py-2 px-5 rounded">
-            <p className="font-semibold">{label}</p>
-            <p>{formatNumber(value)}</p>
+          <div className="bg-slate-700 text-white py-1 px-2 rounded">
+            <p className="text-sm font-semibold">
+              {label}: {formatNumber(value)}
+            </p>
           </div>
         )}
         legends={
