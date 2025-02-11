@@ -8,7 +8,12 @@ import Details from './components/investmentData/Details';
 
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
-    details: { total: number };
+    details: {
+      total: number;
+      inflationAdjusted: number;
+      inflationRate: number;
+      years: number;
+    };
     chartData: {
       id: string;
       label: string;
@@ -16,7 +21,12 @@ function App() {
       value: number;
     }[];
   }>({
-    details: { total: 3343 },
+    details: {
+      total: 3343,
+      inflationAdjusted: Math.round(3343 * 0.967),
+      inflationRate: 3.3,
+      years: 1,
+    },
     chartData: [
       {
         id: 'Initial',

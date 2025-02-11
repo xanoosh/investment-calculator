@@ -13,19 +13,26 @@ export default function calculateInvestment(
 ) {
   const { initialInvestment, interestRate, years, annualInvestment } =
     convertFormData(formData);
+
+  const inflationRate = 3.3;
+
   let investmentBase = initialInvestment;
+  let inflationAdjustedBase = initialInvestment;
   let totalInterest = 0;
   let interestYearValue = 0;
   for (let i = 0; i < years; i++) {
     interestYearValue = investmentBase * (interestRate / 100);
     totalInterest += interestYearValue;
-    investmentBase = investmentBase + interestYearValue + annualInvestment;
+    investmentBase += interestYearValue + annualInvestment;
+    inflationAdjustedBase *= (100 + interestRate - inflationRate) / 100;
+    inflationAdjustedBase += annualInvestment;
   }
 
   const startingAmount = initialInvestment;
   const totalContributions = annualInvestment * years;
 
   const total = Math.round(startingAmount + totalContributions + totalInterest);
+  const inflationAdjusted = Math.round(inflationAdjustedBase);
   const chartData = [
     {
       id: 'Interest',
@@ -47,7 +54,12 @@ export default function calculateInvestment(
     },
   ];
   return {
-    details: { total },
+    details: {
+      total,
+      inflationAdjusted,
+      inflationRate,
+      years,
+    },
     chartData: chartData.filter(({ value }: { value: number }) => value > 0),
   };
 }

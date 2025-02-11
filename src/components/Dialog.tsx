@@ -12,7 +12,6 @@ export default function Dialog({
   content,
   triggerClasses,
 }: DialogProps) {
-  console.log('Dialog rendered');
   return (
     <DialogPrimitives.Root>
       <DialogPrimitives.Trigger asChild>

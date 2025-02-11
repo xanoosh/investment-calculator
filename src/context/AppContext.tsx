@@ -3,7 +3,12 @@ import { createContext } from 'react';
 interface AppContextType {
   setInvestment: React.Dispatch<
     React.SetStateAction<{
-      details: { total: number };
+      details: {
+        total: number;
+        inflationAdjusted: number;
+        inflationRate: number;
+        years: number;
+      };
       chartData: {
         id: string;
         label: string;
@@ -15,5 +20,8 @@ interface AppContextType {
 }
 
 export const AppContext = createContext<AppContextType>({
-  setInvestment: () => ({ details: { total: 0 }, chartData: [] }),
+  setInvestment: () => ({
+    details: {},
+    chartData: [],
+  }),
 });
