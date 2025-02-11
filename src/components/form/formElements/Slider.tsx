@@ -6,15 +6,19 @@ export default function SliderComponent({
   name,
   control,
   defaultValue,
-  displayValue = false,
   maxValue,
+  minValue,
+  step,
+  displayValue,
   symbol,
 }: {
   name: string;
   control: Control<FieldValues>;
   defaultValue?: number[];
-  displayValue?: boolean;
   maxValue?: number;
+  minValue?: number;
+  step?: number;
+  displayValue?: boolean;
   symbol?: string;
 }) {
   const { field } = useController({
@@ -24,22 +28,19 @@ export default function SliderComponent({
     defaultValue,
   });
   return (
-    <div>
-      <Label.Root
-        className="text-[15px] font-medium leading-[35px] text-white"
-        htmlFor={field.name}
-      >
+    <div className="">
+      <Label.Root className="text-sm text-white" htmlFor={field.name}>
         {name} {displayValue ? `: ${field.value}` : null}
         {symbol ? symbol : null}
       </Label.Root>
 
       <Slider.Root
         className="relative flex h-5 w-full touch-none select-none items-center"
-        max={maxValue || 80}
-        min={1}
+        max={maxValue ? maxValue : 80}
+        min={minValue ? minValue : 1}
         name={name}
         id={field.name}
-        step={1}
+        step={step ? step : 1}
         value={field.value}
         onValueChange={field.onChange}
         ref={field.ref}

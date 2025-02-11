@@ -30,10 +30,7 @@ export default function Input({
   });
   return (
     <div className="flex flex-col gap-1">
-      <Label.Root
-        className="text-[15px] font-medium leading-[35px] text-white"
-        htmlFor={name}
-      >
+      <Label.Root className="text-sm text-white" htmlFor={name}>
         {name}
       </Label.Root>
       <input

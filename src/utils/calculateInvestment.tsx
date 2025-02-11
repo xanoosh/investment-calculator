@@ -11,10 +11,13 @@ export default function calculateInvestment(
       }
     | FieldValues
 ) {
-  const { initialInvestment, interestRate, years, annualInvestment } =
-    convertFormData(formData);
-
-  const inflationRate = 3.3;
+  const {
+    initialInvestment,
+    interestRate,
+    years,
+    annualInvestment,
+    inflationRate,
+  } = convertFormData(formData);
 
   let investmentBase = initialInvestment;
   let inflationAdjustedBase = initialInvestment;
