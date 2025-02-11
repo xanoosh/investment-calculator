@@ -1,6 +1,7 @@
 import { ResponsivePie } from '@nivo/pie';
 import AspectRatioWrapper from '../AspectRatioWrapper';
 import { useMedia } from 'react-use';
+import formatNumber from '../../utils/formatNumber';
 
 interface PieChartData {
   id: string;
@@ -32,9 +33,7 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
           modifiers: [['darker', 0.2]],
         }}
         enableArcLinkLabels={largeScreen}
-        arcLabel={(e) =>
-          e.value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ' ')
-        }
+        arcLabel={(e) => formatNumber(e.value)}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={20}
         arcLinkLabelsSkipAngle={15}
