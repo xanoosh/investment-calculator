@@ -41,6 +41,12 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         arcLinkLabelsOffset={-2}
         arcLinkLabelsDiagonalLength={8}
         arcLinkLabelsThickness={2}
+        tooltip={({ datum: { label, value } }) => (
+          <div className="bg-slate-700 text-white p-2 rounded">
+            <p className="font-semibold">{label}</p>
+            <p>value: {formatNumber(value)}</p>
+          </div>
+        )}
         legends={
           largeScreen
             ? []
