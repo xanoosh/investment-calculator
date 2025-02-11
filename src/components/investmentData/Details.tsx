@@ -34,7 +34,7 @@ export default function Details({
             <p>{formatNumber(investmentData.details.inflationAdjusted)}</p>
           </div>
           <p className="text-slate-300 text-xs">
-            Approximate spending power of your investment after{' '}
+            Approximate purchasing power of your investment after{' '}
             <strong className="text-nowrap">
               {investmentData.details.years}{' '}
               {investmentData.details.years === 1 ? 'year' : 'years'}
