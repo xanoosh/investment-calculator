@@ -11,11 +11,17 @@ interface PieChartData {
 
 export default function PieChart({ data }: { data: PieChartData[] }) {
   const largeScreen = useMedia('(min-width: 768px)');
+  const mobileScreen = useMedia('(max-width: 500px)');
   return (
     <AspectRatioWrapper ratio={largeScreen ? 16 / 10 : 1}>
       <ResponsivePie
         data={data}
-        margin={{ top: 10, right: 0, bottom: largeScreen ? 20 : 70, left: 0 }}
+        margin={{
+          top: 0,
+          right: 0,
+          bottom: largeScreen ? 20 : 70,
+          left: 0,
+        }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
@@ -42,9 +48,9 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
         arcLinkLabelsDiagonalLength={8}
         arcLinkLabelsThickness={2}
         tooltip={({ datum: { label, value } }) => (
-          <div className="bg-slate-700 text-white p-2 rounded">
+          <div className="bg-slate-700 text-white py-2 px-5 rounded">
             <p className="font-semibold">{label}</p>
-            <p>value: {formatNumber(value)}</p>
+            <p>{formatNumber(value)}</p>
           </div>
         )}
         legends={
@@ -56,7 +62,7 @@ export default function PieChart({ data }: { data: PieChartData[] }) {
                   direction: 'column',
                   justify: false,
                   translateX: 0,
-                  translateY: 0,
+                  translateY: mobileScreen ? 50 : 0,
                   itemsSpacing: 3,
                   itemWidth: 100,
                   itemHeight: 18,

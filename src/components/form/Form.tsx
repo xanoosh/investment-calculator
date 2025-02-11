@@ -11,7 +11,7 @@ export default function Form() {
 
   return (
     <form
-      className="flex flex-col gap-2"
+      className="flex flex-col sm:gap-2 gap-1"
       onChange={handleSubmit((data) => {
         const calculatedInvestmentResult = calculateInvestment(data);
         setInvestment(calculatedInvestmentResult);
