@@ -24,8 +24,8 @@ export default function Dialog({
       </DialogPrimitives.Trigger>
       <DialogPrimitives.Portal>
         <DialogPrimitives.DialogDescription />
-        <DialogPrimitives.Overlay className="fixed inset-0 bg-black/35" />
-        <DialogPrimitives.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-800 px-6 pb-8 pt-16 focus:outline-none">
+        <DialogPrimitives.Overlay className="fixed inset-0 bg-black/35 z-10" />
+        <DialogPrimitives.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-800 px-6 pb-8 pt-16 focus:outline-none z-10">
           <DialogPrimitives.Title className="absolute top-4 left-6 text-xl font-semibold text-white">
             {title}
           </DialogPrimitives.Title>
