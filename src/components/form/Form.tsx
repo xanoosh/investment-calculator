@@ -42,15 +42,6 @@ export default function Form() {
           maxValue={30}
           symbol="%"
         />
-        <Collapsible.Trigger asChild>
-          <button className="text-white cursor-pointer rounded-sm focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600 flex justify-center items-center w-7 h-5">
-            {open ? (
-              <Icon.ChevronUpIcon width={30} height={20} />
-            ) : (
-              <Icon.ChevronDownIcon width={30} height={20} />
-            )}
-          </button>
-        </Collapsible.Trigger>
 
         <Collapsible.CollapsibleContent>
           <Input
@@ -64,6 +55,16 @@ export default function Form() {
             defaultValue="0"
           />
         </Collapsible.CollapsibleContent>
+
+        <Collapsible.Trigger asChild>
+          <button className="text-white cursor-pointer rounded-sm mx-auto focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600 flex justify-center items-center w-7 h-5">
+            {open ? (
+              <Icon.ChevronUpIcon width={30} height={20} />
+            ) : (
+              <Icon.ChevronDownIcon width={30} height={20} />
+            )}
+          </button>
+        </Collapsible.Trigger>
       </form>
     </Collapsible.Root>
   );
