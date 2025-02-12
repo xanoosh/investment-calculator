@@ -16,12 +16,12 @@ export default function Input({
     control,
     rules: {
       pattern: {
-        value: /^[0-9]+$/,
+        value: /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?/,
         message: 'Number must be 0 or higher',
       },
       validate: (value: string) => {
         if (isNaN(Number(value)) || value === '') {
-          return 'Please enter a number';
+          return 'Please enter a number/float';
         }
         return true;
       },
@@ -29,8 +29,8 @@ export default function Input({
     defaultValue,
   });
   return (
-    <div className="flex flex-col gap-1">
-      <Label.Root className="text-sm text-white" htmlFor={name}>
+    <div className="flex flex-col gap-1.5">
+      <Label.Root className="text-white" htmlFor={name}>
         {name}
       </Label.Root>
       <input

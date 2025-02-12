@@ -28,8 +28,8 @@ export default function SliderComponent({
     defaultValue,
   });
   return (
-    <div className="">
-      <Label.Root className="text-sm text-white" htmlFor={field.name}>
+    <div className="flex flex-col gap-2">
+      <Label.Root className="text-white" htmlFor={field.name}>
         {name} {displayValue ? `: ${field.value}` : null}
         {symbol ? symbol : null}
       </Label.Root>

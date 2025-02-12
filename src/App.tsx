@@ -1,10 +1,11 @@
-import Form from './components/form/Form';
 import PieChart from './components/investmentData/PieChart';
 import { useState } from 'react';
 import { AppContext } from './context/AppContext';
 import Dialog from './components/Dialog';
 import { FocusTrap } from 'focus-trap-react';
 import Details from './components/investmentData/Details';
+import Form from './components/form/Form';
+import * as Icons from '@radix-ui/react-icons';
 
 function App() {
   const [calculatedInvestment, setCalculatedInvestment] = useState<{
@@ -58,12 +59,15 @@ function App() {
             <h1 className="text-2xl">Investment calculator</h1>
           </div>
           <div className="grid grid-cols-1 sm:gap-4 gap-4 md:grid-cols-10 w-9/10 max-w-4xl">
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 relative">
               <Form />
             </div>
             {calculatedInvestment.chartData.length > 0 ? (
               <div className="md:col-span-7 flex flex-col items-end relative">
                 <Dialog
+                  triggerContent={
+                    <Icons.InfoCircledIcon width={25} height={25} />
+                  }
                   triggerClasses="absolute top-0 right-0 z-10"
                   title="Investment Details"
                   content={<Details investmentData={calculatedInvestment} />}

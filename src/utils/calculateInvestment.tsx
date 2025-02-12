@@ -17,6 +17,7 @@ export default function calculateInvestment(
     years,
     annualInvestment,
     inflationRate,
+    totalExpenseRatio,
   } = convertFormData(formData);
 
   let investmentBase = initialInvestment;
@@ -24,10 +25,15 @@ export default function calculateInvestment(
   let totalInterest = 0;
   let interestYearValue = 0;
   for (let i = 0; i < years; i++) {
+    //interest & base investment calc
     interestYearValue = investmentBase * (interestRate / 100);
     totalInterest += interestYearValue;
-    investmentBase += interestYearValue + annualInvestment;
-    inflationAdjustedBase *= (100 + interestRate - inflationRate) / 100;
+    investmentBase *= (100 + interestRate - totalExpenseRatio) / 100;
+    investmentBase += annualInvestment;
+
+    //inflation calc
+    inflationAdjustedBase *=
+      (100 + interestRate - inflationRate - totalExpenseRatio) / 100;
     inflationAdjustedBase += annualInvestment;
   }
 

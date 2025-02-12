@@ -7,7 +7,8 @@ export default function convertFormData(
         ['Annual investment']: string;
         ['Years']: number[];
         ['Interest rate']: number[];
-        ['Inflation rate']: number[];
+        ['Inflation rate (%)']: string;
+        ['Total expense ratio (%)']: string;
       }
     | FieldValues
 ) {
@@ -16,6 +17,7 @@ export default function convertFormData(
     annualInvestment: Number(formData['Annual investment']) || 0,
     years: formData.Years[0] || 0,
     interestRate: formData['Interest rate'][0] || 0,
-    inflationRate: formData['Inflation rate'][0] || 3.3,
+    inflationRate: Number(formData['Inflation rate (%)']) || 0,
+    totalExpenseRatio: Number(formData['Total expense ratio (%)']) || 0,
   };
 }
