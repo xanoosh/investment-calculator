@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { initialCalculatedInvestment } from './initialCalculatedInvestment';
+import { CalculatedInvestmentInterface } from '../interfaces';
 
 const getInitialCalculatedInvestment = () => {
   const calculatedInvestment = localStorage.getItem('calculatedInvestment');
@@ -10,28 +11,7 @@ const getInitialCalculatedInvestment = () => {
 };
 
 type calculatedInvestmentStoreType = {
-  calculatedInvestment: {
-    details: {
-      total: number;
-      inflationAdjusted: number;
-      inflationRate: number;
-      years: number;
-    };
-    formData: {
-      ['Initial investment']: string;
-      ['Annual investment']: string;
-      ['Years']: number[];
-      ['Interest rate']: number[];
-      ['Inflation rate (%)']: string;
-      ['Total expense ratio (%)']: string;
-    };
-    chartData: {
-      id: string;
-      label: string;
-      description: string;
-      value: number;
-    }[];
-  };
+  calculatedInvestment: CalculatedInvestmentInterface;
   update: (
     calculatedInvestment: calculatedInvestmentStoreType['calculatedInvestment']
   ) => void;

@@ -1,19 +1,13 @@
 import * as DialogPrimitives from '@radix-ui/react-dialog';
 import * as Icons from '@radix-ui/react-icons';
-import { ReactNode } from 'react';
+import { DialogInterface } from '../interfaces';
 
-interface DialogProps {
-  title: string;
-  content: ReactNode;
-  triggerContent: ReactNode;
-  triggerClasses?: string;
-}
 export default function Dialog({
   title,
   content,
   triggerContent,
   triggerClasses,
-}: DialogProps) {
+}: DialogInterface) {
   return (
     <DialogPrimitives.Root>
       <DialogPrimitives.Trigger asChild>

@@ -2,14 +2,9 @@ import { ResponsivePie } from '@nivo/pie';
 import AspectRatioWrapper from '../AspectRatioWrapper';
 import { useMedia } from 'react-use';
 import formatNumber from '../../utils/formatNumber';
+import { PieChartInterface } from '../../interfaces';
 
-interface PieChartData {
-  id: string;
-  label: string;
-  value: number;
-}
-
-export default function PieChart({ data }: { data: PieChartData[] }) {
+export default function PieChart({ data }: PieChartInterface) {
   const largeScreen = useMedia('(min-width: 768px)');
   const mobileScreen = useMedia('(max-width: 500px)');
   return (

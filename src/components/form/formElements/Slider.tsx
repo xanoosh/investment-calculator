@@ -1,6 +1,6 @@
 import { Slider, Label } from 'radix-ui';
 import { useController } from 'react-hook-form';
-import { Control, FieldValues } from 'react-hook-form';
+import { SliderInterface } from '../../../interfaces';
 
 export default function SliderComponent({
   name,
@@ -11,16 +11,7 @@ export default function SliderComponent({
   step,
   displayValue,
   symbol,
-}: {
-  name: string;
-  control: Control<FieldValues>;
-  defaultValue?: number[];
-  maxValue?: number;
-  minValue?: number;
-  step?: number;
-  displayValue?: boolean;
-  symbol?: string;
-}) {
+}: SliderInterface) {
   const { field } = useController({
     name,
     control,

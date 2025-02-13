@@ -1,13 +1,9 @@
 import { AspectRatio } from '@radix-ui/react-aspect-ratio';
-
-import { ReactNode } from 'react';
+import { AspectRatioWrapperInterface } from '../interfaces';
 
 export default function AspectRatioWrapper({
   children,
   ratio,
-}: {
-  children: ReactNode;
-  ratio: number;
-}) {
+}: AspectRatioWrapperInterface) {
   return <AspectRatio ratio={ratio}>{children}</AspectRatio>;
 }

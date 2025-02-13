@@ -1,17 +1,6 @@
-import { FieldValues } from 'react-hook-form';
+import { FormDataInterface } from '../interfaces';
 
-export default function convertFormData(
-  formData:
-    | {
-        ['Initial investment']: string;
-        ['Annual investment']: string;
-        ['Years']: number[];
-        ['Interest rate']: number[];
-        ['Inflation rate (%)']: string;
-        ['Total expense ratio (%)']: string;
-      }
-    | FieldValues
-) {
+export default function convertFormData(formData: FormDataInterface) {
   return {
     initialInvestment: Number(formData['Initial investment']) || 0,
     annualInvestment: Number(formData['Annual investment']) || 0,

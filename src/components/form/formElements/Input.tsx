@@ -1,16 +1,8 @@
 import { useController } from 'react-hook-form';
-import { Control, FieldValues } from 'react-hook-form';
 import { Label } from 'radix-ui';
+import { InputInterface } from '../../../interfaces';
 
-export default function Input({
-  name,
-  control,
-  defaultValue,
-}: {
-  name: string;
-  control: Control<FieldValues>;
-  defaultValue?: string;
-}) {
+export default function Input({ name, control, defaultValue }: InputInterface) {
   const { field, fieldState } = useController({
     name,
     control,

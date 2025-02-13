@@ -1,23 +1,7 @@
 import formatNumber from '../../utils/formatNumber';
+import { DetailsInterface } from '../../interfaces';
 
-export default function Details({
-  investmentData,
-}: {
-  investmentData: {
-    details: {
-      total: number;
-      inflationAdjusted: number;
-      inflationRate: number;
-      years: number;
-    };
-    chartData: {
-      id: string;
-      label: string;
-      description: string;
-      value: number;
-    }[];
-  };
-}) {
+export default function Details({ investmentData }: DetailsInterface) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-4">
