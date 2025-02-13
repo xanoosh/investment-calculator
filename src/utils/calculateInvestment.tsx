@@ -6,8 +6,10 @@ export default function calculateInvestment(
     | {
         ['Initial investment']: string;
         ['Annual investment']: string;
-        years: number[];
+        ['Years']: number[];
         ['Interest rate']: number[];
+        ['Inflation rate (%)']: string;
+        ['Total expense ratio (%)']: string;
       }
     | FieldValues
 ) {
@@ -62,12 +64,21 @@ export default function calculateInvestment(
       value: totalContributions,
     },
   ];
+
   return {
     details: {
       total,
       inflationAdjusted,
       inflationRate,
       years,
+    },
+    formData: {
+      ['Initial investment']: formData['Initial investment'],
+      ['Annual investment']: formData['Annual investment'],
+      ['Years']: formData['Years'],
+      ['Interest rate']: formData['Interest rate'],
+      ['Inflation rate (%)']: formData['Inflation rate (%)'],
+      ['Total expense ratio (%)']: formData['Total expense ratio (%)'],
     },
     chartData: chartData.filter(({ value }: { value: number }) => value > 0),
   };
