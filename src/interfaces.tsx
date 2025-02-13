@@ -28,6 +28,26 @@ export interface CalculatedInvestmentInterface {
   chartData: SinglePieChartDataInterface[];
 }
 
+export interface buildInvestmentObjectInterface {
+  totalInterest: number;
+  startingAmount: number;
+  totalContributions: number;
+  total: number;
+  inflationAdjusted: number;
+  inflationRate: number;
+  years: number;
+  formData: FormDataInterface;
+}
+
+export interface calculateInvestmentYearsInterface {
+  initialInvestment: number;
+  interestRate: number;
+  years: number;
+  annualInvestment: number;
+  inflationRate: number;
+  totalExpenseRatio: number;
+}
+
 //components
 
 export interface DialogInterface {
