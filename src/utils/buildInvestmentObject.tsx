@@ -38,14 +38,7 @@ export default function buildInvestmentObject({
       inflationRate,
       years,
     },
-    formData: {
-      ['Initial investment']: formData['Initial investment'],
-      ['Annual investment']: formData['Annual investment'],
-      ['Years']: formData['Years'],
-      ['Interest rate']: formData['Interest rate'],
-      ['Inflation rate (%)']: formData['Inflation rate (%)'],
-      ['Total expense ratio (%)']: formData['Total expense ratio (%)'],
-    },
+    formData,
     chartData: chartData.filter(({ value }: { value: number }) => value > 0),
   };
 }
