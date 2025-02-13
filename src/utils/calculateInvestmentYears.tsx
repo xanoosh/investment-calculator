@@ -1,4 +1,4 @@
-import { calculateInvestmentYearsInterface } from '../interfaces';
+import { CalculateInvestmentYearsInterface } from '../interfaces';
 
 export default function calculateInvestmentYears({
   initialInvestment,
@@ -7,7 +7,7 @@ export default function calculateInvestmentYears({
   annualInvestment,
   inflationRate,
   totalExpenseRatio,
-}: calculateInvestmentYearsInterface) {
+}: CalculateInvestmentYearsInterface) {
   let investmentBase = initialInvestment;
   let inflationAdjustedBase = initialInvestment;
   let totalInterest = 0;

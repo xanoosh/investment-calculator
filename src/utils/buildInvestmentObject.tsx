@@ -1,4 +1,4 @@
-import { buildInvestmentObjectInterface } from '../interfaces';
+import { BuildInvestmentObjectInterface } from '../interfaces';
 
 export default function buildInvestmentObject({
   totalInterest,
@@ -9,7 +9,7 @@ export default function buildInvestmentObject({
   inflationRate,
   years,
   formData,
-}: buildInvestmentObjectInterface) {
+}: BuildInvestmentObjectInterface) {
   const chartData = [
     {
       id: 'Interest',
