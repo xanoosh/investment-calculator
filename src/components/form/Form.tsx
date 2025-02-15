@@ -8,7 +8,7 @@ import * as Icon from '@radix-ui/react-icons';
 import { useCalculatedInvestmentStore } from '../../store/useCalculatedInvestmentStore';
 
 export default function Form() {
-  const [open, setOpen] = useState<boolean>(false);
+  const [collapsibleOpen, setCollapsibleOpen] = useState<boolean>(false);
   const { control, handleSubmit } = useForm();
   const setCalculatedInvestment = useCalculatedInvestmentStore(
     (state) => state.update
@@ -18,11 +18,15 @@ export default function Form() {
     (state) => state.calculatedInvestment
   );
 
+  console.log('formData (to populate):', formData);
+
   return (
-    <Collapsible.Root open={open} onOpenChange={setOpen}>
+    <Collapsible.Root open={collapsibleOpen} onOpenChange={setCollapsibleOpen}>
       <form
         className="flex flex-col gap-3"
         onChange={handleSubmit((data) => {
+          console.log('submit data:', data);
+
           const calculatedInvestmentResult = calculateInvestment(data);
           setCalculatedInvestment(calculatedInvestmentResult);
         })}
@@ -52,6 +56,22 @@ export default function Form() {
           maxValue={30}
           symbol="%"
         />
+        {!collapsibleOpen ? (
+          <>
+            <Input
+              type="hidden"
+              name="Inflation rate (%)"
+              control={control}
+              defaultValue={formData['Inflation rate (%)']}
+            />
+            <Input
+              type="hidden"
+              name="Total expense ratio (%)"
+              control={control}
+              defaultValue={formData['Total expense ratio (%)']}
+            />
+          </>
+        ) : null}
 
         <Collapsible.CollapsibleContent className="flex flex-col gap-3">
           <Input
@@ -68,7 +88,7 @@ export default function Form() {
 
         <Collapsible.Trigger asChild>
           <button className="mt-2 text-white cursor-pointer rounded-sm mx-auto focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600 flex justify-center items-center w-7 h-5">
-            {open ? (
+            {collapsibleOpen ? (
               <Icon.ChevronUpIcon width={30} height={20} />
             ) : (
               <Icon.ChevronDownIcon width={30} height={20} />

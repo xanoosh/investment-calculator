@@ -2,7 +2,12 @@ import { useController } from 'react-hook-form';
 import { Label } from 'radix-ui';
 import { InputInterface } from '../../../interfaces';
 
-export default function Input({ name, control, defaultValue }: InputInterface) {
+export default function Input({
+  name,
+  control,
+  defaultValue,
+  type = 'number',
+}: InputInterface) {
   const { field, fieldState } = useController({
     name,
     control,
@@ -20,14 +25,16 @@ export default function Input({ name, control, defaultValue }: InputInterface) {
     },
     defaultValue,
   });
-  return (
+  return type === 'hidden' ? (
+    <input type={type} value={field.value} name={field.name} />
+  ) : (
     <div className="flex flex-col gap-1.5">
       <Label.Root className="text-white" htmlFor={name}>
         {name}
       </Label.Root>
       <input
         className="bg-white py-1 px-3 border-1 rounded-sm focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600"
-        type="number"
+        type={type}
         onChange={field.onChange}
         onBlur={field.onBlur}
         value={field.value}

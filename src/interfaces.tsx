@@ -74,6 +74,7 @@ export interface InputInterface {
   name: string;
   control: Control<FieldValues>;
   defaultValue?: string;
+  type?: string;
 }
 
 export interface SliderInterface {
