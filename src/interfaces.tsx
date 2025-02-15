@@ -1,15 +1,6 @@
 import { ReactNode } from 'react';
 import { Control, FieldValues } from 'react-hook-form';
 
-export interface FormDataInterface {
-  ['Initial investment']: string;
-  ['Annual investment']: string;
-  ['Years']: number[];
-  ['Interest rate']: number[];
-  ['Inflation rate (%)']: string;
-  ['Total expense ratio (%)']: string;
-}
-
 export interface SinglePieChartDataInterface {
   id: string;
   label: string;
@@ -24,7 +15,7 @@ export interface CalculatedInvestmentInterface {
     inflationRate: number;
     years: number;
   };
-  formData: FormDataInterface;
+  formData: FieldValues;
   chartData: SinglePieChartDataInterface[];
 }
 
@@ -36,7 +27,7 @@ export interface BuildInvestmentObjectInterface {
   inflationAdjusted: number;
   inflationRate: number;
   years: number;
-  formData: FormDataInterface;
+  formData: FieldValues;
 }
 
 export interface CalculateInvestmentYearsInterface {

@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import SliderComponent from './formElements/Slider';
 import Input from './formElements/Input';
 import calculateInvestment from '../../utils/calculateInvestment';
@@ -18,15 +18,11 @@ export default function Form() {
     (state) => state.calculatedInvestment
   );
 
-  console.log('formData (to populate):', formData);
-
   return (
     <Collapsible.Root open={collapsibleOpen} onOpenChange={setCollapsibleOpen}>
       <form
         className="flex flex-col gap-3"
-        onChange={handleSubmit((data) => {
-          console.log('submit data:', data);
-
+        onChange={handleSubmit((data: FieldValues) => {
           const calculatedInvestmentResult = calculateInvestment(data);
           setCalculatedInvestment(calculatedInvestmentResult);
         })}

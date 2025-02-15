@@ -1,6 +1,6 @@
-import { FormDataInterface } from '../interfaces';
+import { FieldValues } from 'react-hook-form';
 
-export default function convertFormData(formData: FormDataInterface) {
+export default function convertFormData(formData: FieldValues) {
   return {
     initialInvestment: Number(formData['Initial investment']) || 0,
     annualInvestment: Number(formData['Annual investment']) || 0,

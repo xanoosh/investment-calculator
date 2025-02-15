@@ -1,9 +1,9 @@
 import convertFormData from './convertFormData';
-import { FormDataInterface } from '../interfaces';
 import calculateInvestmentYears from './calculateInvestmentYears';
 import buildInvestmentObject from './buildInvestmentObject';
+import { FieldValues } from 'react-hook-form';
 
-export default function calculateInvestment(formData: FormDataInterface) {
+export default function calculateInvestment(formData: FieldValues) {
   const {
     initialInvestment,
     interestRate,
