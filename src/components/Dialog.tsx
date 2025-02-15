@@ -1,6 +1,7 @@
 import * as DialogPrimitives from '@radix-ui/react-dialog';
 import * as Icons from '@radix-ui/react-icons';
 import { DialogInterface } from '../interfaces';
+import { motion } from 'framer-motion';
 
 export default function Dialog({
   title,
@@ -8,6 +9,10 @@ export default function Dialog({
   triggerContent,
   triggerClasses,
 }: DialogInterface) {
+  const dialogVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <DialogPrimitives.Root>
       <DialogPrimitives.Trigger asChild>
@@ -20,20 +25,27 @@ export default function Dialog({
       <DialogPrimitives.Portal>
         <DialogPrimitives.DialogDescription />
         <DialogPrimitives.Overlay className="fixed inset-0 bg-black/35 z-10" />
-        <DialogPrimitives.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-800 px-6 pb-8 pt-16 focus:outline-none z-10">
-          <DialogPrimitives.Title className="absolute top-4 left-6 text-xl font-semibold text-white">
-            {title}
-          </DialogPrimitives.Title>
-          <DialogPrimitives.Content>{content}</DialogPrimitives.Content>
+        <DialogPrimitives.Content asChild forceMount>
+          <motion.div
+            className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-slate-800 px-6 pb-8 pt-16 focus:outline-none z-10"
+            initial="hidden"
+            animate="visible"
+            variants={dialogVariants}
+          >
+            <DialogPrimitives.Title className="absolute top-4 left-6 text-xl font-semibold text-white">
+              {title}
+            </DialogPrimitives.Title>
+            <div>{content}</div>
 
-          <DialogPrimitives.Close asChild>
-            <button
-              className="absolute right-6 top-4 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
-              aria-label="Close"
-            >
-              <Icons.Cross2Icon width={25} height={25} />
-            </button>
-          </DialogPrimitives.Close>
+            <DialogPrimitives.Close asChild>
+              <button
+                className="absolute right-6 top-4 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
+                aria-label="Close"
+              >
+                <Icons.Cross2Icon width={25} height={25} />
+              </button>
+            </DialogPrimitives.Close>
+          </motion.div>
         </DialogPrimitives.Content>
       </DialogPrimitives.Portal>
     </DialogPrimitives.Root>

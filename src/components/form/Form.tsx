@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Collapsible } from 'radix-ui';
 import * as Icon from '@radix-ui/react-icons';
 import { useCalculatedInvestmentStore } from '../../store/useCalculatedInvestmentStore';
+import { motion } from 'framer-motion';
 
 export default function Form() {
   const [collapsibleOpen, setCollapsibleOpen] = useState<boolean>(false);
@@ -18,10 +19,14 @@ export default function Form() {
     (state) => state.calculatedInvestment
   );
 
+  const collapsibleVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
   return (
     <Collapsible.Root open={collapsibleOpen} onOpenChange={setCollapsibleOpen}>
       <form
-        className="flex flex-col gap-3"
+        className="flex flex-col gap-3 relative"
         onChange={handleSubmit((data: FieldValues) => {
           const calculatedInvestmentResult = calculateInvestment(data);
           setCalculatedInvestment(calculatedInvestmentResult);
@@ -68,20 +73,6 @@ export default function Form() {
             />
           </>
         ) : null}
-
-        <Collapsible.CollapsibleContent className="flex flex-col gap-3">
-          <Input
-            name="Inflation rate (%)"
-            control={control}
-            defaultValue={formData['Inflation rate (%)']}
-          />
-          <Input
-            name="Total expense ratio (%)"
-            control={control}
-            defaultValue={formData['Total expense ratio (%)']}
-          />
-        </Collapsible.CollapsibleContent>
-
         <Collapsible.Trigger asChild>
           <button className="mt-2 text-white cursor-pointer rounded-sm mx-auto focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600 flex justify-center items-center w-7 h-5">
             {collapsibleOpen ? (
@@ -91,6 +82,26 @@ export default function Form() {
             )}
           </button>
         </Collapsible.Trigger>
+
+        <Collapsible.CollapsibleContent className="flex flex-col gap-3">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={collapsibleVariants}
+          >
+            <Input
+              name="Inflation rate (%)"
+              control={control}
+              defaultValue={formData['Inflation rate (%)']}
+            />
+            <Input
+              name="Total expense ratio (%)"
+              control={control}
+              defaultValue={formData['Total expense ratio (%)']}
+            />
+          </motion.div>
+        </Collapsible.CollapsibleContent>
       </form>
     </Collapsible.Root>
   );
