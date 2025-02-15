@@ -83,8 +83,9 @@ export default function Form() {
           </button>
         </Collapsible.Trigger>
 
-        <Collapsible.CollapsibleContent className="flex flex-col gap-3">
+        <Collapsible.CollapsibleContent asChild>
           <motion.div
+            className="flex flex-col gap-3"
             initial="hidden"
             animate="visible"
             exit="hidden"
