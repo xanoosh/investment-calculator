@@ -31,6 +31,21 @@ export default function buildInvestmentObject({
     },
   ];
 
+  const inflationChartData = [
+    {
+      id: 'Earnings',
+      label: 'Earnings',
+      description: 'Actual inflation adjusted earnings of an investment',
+      value: inflationAdjusted,
+    },
+    {
+      id: 'Lost',
+      label: 'Lost',
+      description: 'Lost purchasing power of this investment',
+      value: total - inflationAdjusted,
+    },
+  ];
+
   return {
     details: {
       total,
@@ -40,5 +55,6 @@ export default function buildInvestmentObject({
     },
     formData,
     chartData: chartData.filter(({ value }: { value: number }) => value > 0),
+    inflationChartData,
   };
 }

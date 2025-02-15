@@ -27,7 +27,7 @@ export default function Dialog({
         <DialogPrimitives.Overlay className="fixed inset-0 bg-black/35 z-10" />
         <DialogPrimitives.Content asChild forceMount>
           <motion.div
-            className="fixed md:left-[10vw] left-[5vw] top-[10vh] max-h-[80vh] md:w-[80vw] w-[90vw] rounded-md bg-slate-800 px-6 pb-8 pt-16 focus:outline-none z-10"
+            className="fixed md:left-[10vw] left-[5vw] top-[10vh] max-h-[90vh] md:w-[80vw] w-[90vw] rounded-md bg-slate-800 px-6 pb-8 pt-16 focus:outline-none z-10"
             initial="hidden"
             animate="visible"
             variants={dialogVariants}

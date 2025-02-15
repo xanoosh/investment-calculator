@@ -33,4 +33,18 @@ export const initialCalculatedInvestment = {
       value: 1343,
     },
   ],
+  inflationChartData: [
+    {
+      id: 'Earnings',
+      label: 'Earnings',
+      description: 'Actual inflation adjusted earnings of an investment',
+      value: Math.round(3343 * 0.967),
+    },
+    {
+      id: 'Lost',
+      label: 'Lost',
+      description: 'Lost purchasing power of this investment',
+      value: Math.round(3343 * 0.033),
+    },
+  ],
 };

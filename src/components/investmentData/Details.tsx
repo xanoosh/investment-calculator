@@ -3,7 +3,7 @@ import { DetailsInterface } from '../../interfaces';
 import { Tabs } from 'radix-ui';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import React from 'react';
+import InflationChart from './InflationChart';
 
 export default function Details({ investmentData }: DetailsInterface) {
   const [activeTab, setActiveTab] = useState('details');
@@ -36,8 +36,14 @@ export default function Details({ investmentData }: DetailsInterface) {
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      <Tabs.Content value="details">
-        <div className="flex flex-col gap-2">
+      <Tabs.Content asChild value="details">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="flex flex-col gap-2"
+        >
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2 py-2 px-5 bg-white/5 rounded-md">
               <div className="flex justify-between text-white">
@@ -77,19 +83,29 @@ export default function Details({ investmentData }: DetailsInterface) {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </Tabs.Content>
-      <Tabs.Content
-        value="inflation"
-        className="min-h-[50vh] flex justify-center items-center"
-      >
-        <p className="text-white">inflation tab</p>
+      <Tabs.Content value="inflation" asChild>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="min-h-[50vh] flex justify-center items-center"
+        >
+          <InflationChart data={investmentData.inflationChartData} />
+        </motion.div>
       </Tabs.Content>
-      <Tabs.Content
-        value="other"
-        className="min-h-[50vh] flex justify-center items-center"
-      >
-        <p className="text-white">other tab</p>
+      <Tabs.Content value="other">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="min-h-[50vh] flex justify-center items-center"
+        >
+          <p className="text-white">Other tab</p>
+        </motion.div>
       </Tabs.Content>
     </Tabs.Root>
   );

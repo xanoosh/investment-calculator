@@ -17,6 +17,7 @@ export interface CalculatedInvestmentInterface {
   };
   formData: FieldValues;
   chartData: SinglePieChartDataInterface[];
+  inflationChartData: SinglePieChartDataInterface[];
 }
 
 export interface BuildInvestmentObjectInterface {
