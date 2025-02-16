@@ -33,14 +33,14 @@ export default function buildInvestmentObject({
 
   const inflationChartData = [
     {
-      id: 'Earnings',
-      label: 'Earnings',
+      id: 'Profit',
+      label: 'Profit',
       description: 'Actual inflation adjusted earnings of an investment',
       value: inflationAdjusted,
     },
     {
-      id: 'Lost',
-      label: 'Lost',
+      id: 'Inflation',
+      label: 'Inflation',
       description: 'Lost purchasing power of this investment',
       value: total - inflationAdjusted,
     },

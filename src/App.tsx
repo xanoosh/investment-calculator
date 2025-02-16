@@ -1,7 +1,7 @@
 import PieChart from './components/investmentData/PieChart';
 import Dialog from './components/Dialog';
 import { FocusTrap } from 'focus-trap-react';
-import Details from './components/investmentData/Details';
+import Details from './components/details/Details';
 import Form from './components/form/Form';
 import * as Icons from '@radix-ui/react-icons';
 import { useCalculatedInvestmentStore } from './store/useCalculatedInvestmentStore';

@@ -79,3 +79,15 @@ export interface SliderInterface {
   displayValue?: boolean;
   symbol?: string;
 }
+
+export interface TabPillInterface {
+  value: string;
+  title: string;
+  activeTab: string;
+}
+
+export interface TabContentInterface {
+  value: string;
+  className?: string;
+  investmentData: CalculatedInvestmentInterface;
+}

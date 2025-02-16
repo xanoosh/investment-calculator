@@ -30,7 +30,7 @@ export default function PieChart({ data }: PieChartInterface) {
         enableArcLinkLabels={largeScreen}
         arcLabel={(e) => formatNumber(e.value)}
         arcLinkLabelsColor={{ from: 'color' }}
-        arcLabelsSkipAngle={20}
+        arcLabelsSkipAngle={23}
         arcLinkLabelsSkipAngle={15}
         arcLinkLabelsTextColor="#fff"
         arcLinkLabelsOffset={-2}
