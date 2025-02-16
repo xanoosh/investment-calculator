@@ -60,7 +60,18 @@ export default function TabContent({
           </div>
         ) : null}
         {value === 'inflation' ? (
-          <InflationChart data={investmentData.inflationChartData} />
+          <>
+            <InflationChart data={investmentData.inflationChartData} />
+            <p className="text-slate-300 text-xs">
+              Approximate purchasing power of your investment after{' '}
+              <strong className="text-nowrap">
+                {investmentData.details.years}{' '}
+                {investmentData.details.years === 1 ? 'year' : 'years'}
+              </strong>
+              , assuming the inflation rate averages at{' '}
+              <strong>{investmentData.details.inflationRate}%</strong> per year.
+            </p>
+          </>
         ) : null}
         {value === 'other' ? <p className="text-white">Other tab</p> : null}
       </motion.div>

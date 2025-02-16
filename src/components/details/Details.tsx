@@ -7,8 +7,8 @@ import TabPill from './detailsTabs/TabPill';
 export default function Details({ investmentData }: DetailsInterface) {
   const [activeTab, setActiveTab] = useState('details');
   const tabsArray = [
-    { value: 'details', title: 'Details' },
     { value: 'inflation', title: 'Inflation' },
+    { value: 'details', title: 'Details' },
     { value: 'other', title: 'Other' },
   ];
   return (
@@ -19,7 +19,14 @@ export default function Details({ investmentData }: DetailsInterface) {
         ))}
       </Tabs.List>
       {tabsArray.map(({ value }) => (
-        <TabContent key={value} value={value} investmentData={investmentData} />
+        <TabContent
+          key={value}
+          value={value}
+          investmentData={investmentData}
+          className={
+            value !== 'details' ? 'flex items-center justify-center' : ''
+          }
+        />
       ))}
     </Tabs.Root>
   );
