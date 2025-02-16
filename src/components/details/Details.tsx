@@ -5,7 +5,7 @@ import TabContent from './detailsTabs/TabComponent';
 import TabPill from './detailsTabs/TabPill';
 
 export default function Details({ investmentData }: DetailsInterface) {
-  const [activeTab, setActiveTab] = useState('details');
+  const [activeTab, setActiveTab] = useState('inflation');
   const tabsArray = [
     { value: 'inflation', title: 'Inflation' },
     { value: 'details', title: 'Details' },
