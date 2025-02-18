@@ -5,14 +5,19 @@ import Details from './components/details/Details';
 import Form from './components/form/Form';
 import * as Icons from '@radix-ui/react-icons';
 import { useCalculatedInvestmentStore } from './store/useCalculatedInvestmentStore';
+import { useToggleDialog } from './store/useToggleDialog';
 
 function App() {
   const calculatedInvestment = useCalculatedInvestmentStore(
     (state) => state.calculatedInvestment
   );
+  const dialogOpen = useToggleDialog((state) => state.dialogOpen);
 
   return (
-    <FocusTrap focusTrapOptions={{ allowOutsideClick: true }}>
+    <FocusTrap
+      focusTrapOptions={{ allowOutsideClick: true }}
+      active={!dialogOpen}
+    >
       <main className="flex flex-col items-center justify-around min-h-screen sm:pt-4 pt-2 p-2 sm:pb-2 pb-0 sm:gap-4 gap-2 bg-slate-800">
         <div className="text-white text-center">
           <h1 className="text-2xl">Investment calculator</h1>

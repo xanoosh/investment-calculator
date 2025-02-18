@@ -2,6 +2,7 @@ import * as DialogPrimitives from '@radix-ui/react-dialog';
 import * as Icons from '@radix-ui/react-icons';
 import { DialogInterface } from '../interfaces';
 import { motion } from 'framer-motion';
+import { useToggleDialog } from '../store/useToggleDialog';
 
 export default function Dialog({
   title,
@@ -13,8 +14,10 @@ export default function Dialog({
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0 },
   };
+  const toggleDialog = useToggleDialog((state) => state.toggleDialog);
+  const dialogOpen = useToggleDialog((state) => state.dialogOpen);
   return (
-    <DialogPrimitives.Root>
+    <DialogPrimitives.Root open={dialogOpen} onOpenChange={toggleDialog}>
       <DialogPrimitives.Trigger asChild>
         <button
           className={`text-white ml-auto cursor-pointer rounded-full focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600 ${triggerClasses}`}
@@ -37,9 +40,9 @@ export default function Dialog({
             </DialogPrimitives.Title>
             <div>{content}</div>
 
-            <DialogPrimitives.Close asChild>
+            <DialogPrimitives.Close asChild autoFocus>
               <button
-                className="absolute right-6 top-4 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
+                className="absolute right-6 top-4 inline-flex items-center justify-center rounded-full text-white cursor-pointer focus:outline-none focus:ring-2 ring-offset-4 ring-offset-slate-800 ring-sky-600"
                 aria-label="Close"
               >
                 <Icons.Cross2Icon width={25} height={25} />
