@@ -13,15 +13,15 @@ export default function calculateInvestmentYears({
   let totalInterest = 0;
   let interestYearValue = 0;
   const investmentYearsArr = [0];
-  const investmentRoiAdjustedYearsArr = [0];
+  const investmentTerAdjustedYearsArr = [0];
   let investmentArrEl = initialInvestment;
   let investmentTerArrEl = initialInvestment;
   for (let i = 0; i < years; i++) {
-    // investment & roi arr calc
+    // investment & ter arr calc
     investmentArrEl *= (100 + interestRate) / 100;
     investmentTerArrEl *= (100 + interestRate - totalExpenseRatio) / 100;
     investmentYearsArr.push(Math.round(investmentArrEl));
-    investmentRoiAdjustedYearsArr.push(Math.round(investmentTerArrEl));
+    investmentTerAdjustedYearsArr.push(Math.round(investmentTerArrEl));
     investmentArrEl += annualInvestment;
     investmentTerArrEl += annualInvestment;
     //interest & base investment calc
