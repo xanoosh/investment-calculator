@@ -5,19 +5,17 @@ import { LineChartInterface } from '../../interfaces';
 import { chartCustomTheme } from '../../globals/chartCustomTheme';
 
 export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
-  const largeScreen = useMedia('(min-width: 1024px)');
+  // const largeScreen = useMedia('(min-width: 1024px)');
   const mobileScreen = useMedia('(max-width: 500px)');
 
   return (
-    <AspectRatioWrapper
-      ratio={mobileScreen ? 1 : largeScreen ? 16 / 6 : 16 / 10}
-    >
+    <AspectRatioWrapper ratio={mobileScreen ? 16 / 12 : 16 / 6}>
       <ResponsiveLine
         data={data}
         theme={chartCustomTheme}
         enableArea={true}
         colors={['rgb(255, 71, 133)', 'rgb(31, 138, 219)']}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 0, right: 0, bottom: mobileScreen ? 30 : 50, left: 20 }}
         xScale={{ type: 'point' }}
         yScale={{
           type: 'linear',
@@ -30,15 +28,19 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
         axisTop={null}
         axisRight={null}
         // axisBottom={null}
-        axisBottom={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: 'years',
-          legendOffset: 36,
-          legendPosition: 'middle',
-          truncateTickAt: 0,
-        }}
+        axisBottom={
+          mobileScreen
+            ? null
+            : {
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: 'years',
+                legendOffset: 36,
+                legendPosition: 'middle',
+                truncateTickAt: 0,
+              }
+        }
         pointSize={10}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}

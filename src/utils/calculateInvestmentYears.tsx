@@ -46,6 +46,6 @@ export default function calculateInvestmentYears({
     totalContributions,
     totalInterest,
     investmentYearsArr,
-    investmentRoiAdjustedYearsArr,
+    investmentTerAdjustedYearsArr,
   };
 }

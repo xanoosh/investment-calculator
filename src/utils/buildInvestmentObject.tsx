@@ -10,7 +10,7 @@ export default function buildInvestmentObject({
   years,
   formData,
   investmentYearsArr,
-  investmentRoiAdjustedYearsArr,
+  investmentTerAdjustedYearsArr,
 }: BuildInvestmentObjectInterface) {
   const chartData = [
     {
@@ -65,7 +65,7 @@ export default function buildInvestmentObject({
       },
       {
         id: 'ROI Adjusted Investment Value',
-        data: investmentRoiAdjustedYearsArr.map((value, i) => ({
+        data: investmentTerAdjustedYearsArr.map((value, i) => ({
           x: i,
           y: value,
         })),

@@ -36,7 +36,7 @@ export interface BuildInvestmentObjectInterface {
   years: number;
   formData: FieldValues;
   investmentYearsArr: number[];
-  investmentRoiAdjustedYearsArr: number[];
+  investmentTerAdjustedYearsArr: number[];
 }
 
 export interface CalculateInvestmentYearsInterface {
