@@ -63,7 +63,7 @@ export default function buildInvestmentObject({
         id: 'Investment Base Value',
         data: investmentYearsArr.map((value, i) => ({ x: i, y: value })),
       },
-      investmentRoiAdjustedYearsArr.length > 0 && {
+      {
         id: 'ROI Adjusted Investment Value',
         data: investmentRoiAdjustedYearsArr.map((value, i) => ({
           x: i,
