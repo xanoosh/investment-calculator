@@ -19,7 +19,7 @@ export default function calculateInvestment(formData: FieldValues) {
     totalContributions,
     totalInterest,
     investmentYearsArr,
-    investmentRoiAdjustedYearsArr,
+    investmentTerAdjustedYearsArr,
   } = calculateInvestmentYears({
     initialInvestment,
     interestRate,
@@ -38,6 +38,6 @@ export default function calculateInvestment(formData: FieldValues) {
     years,
     formData,
     investmentYearsArr,
-    investmentRoiAdjustedYearsArr,
+    investmentTerAdjustedYearsArr,
   });
 }
