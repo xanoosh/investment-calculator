@@ -8,6 +8,7 @@ export default function Details({ investmentData }: DetailsInterface) {
   const [activeTab, setActiveTab] = useState('inflation');
   const tabsArray = [
     { value: 'inflation', title: 'Inflation' },
+    { value: 'ter', title: 'TER' },
     { value: 'details', title: 'Details' },
     { value: 'other', title: 'Other' },
   ];
