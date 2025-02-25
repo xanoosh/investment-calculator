@@ -29,10 +29,6 @@ export default function Form() {
         className="flex flex-col gap-3 relative"
         onChange={handleSubmit((data: FieldValues) => {
           const calculatedInvestmentResult = calculateInvestment(data);
-          console.log(
-            'totalExpenseRatioChartData',
-            calculatedInvestmentResult.totalExpenseRatioChartData
-          );
           setCalculatedInvestment(calculatedInvestmentResult);
         })}
       >
