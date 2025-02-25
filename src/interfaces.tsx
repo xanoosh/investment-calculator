@@ -8,6 +8,11 @@ export interface SinglePieChartDataInterface {
   value: number;
 }
 
+export interface SingleLineChartDataInterface {
+  id: string;
+  data: { x: number; y: number }[];
+}
+
 export interface CalculatedInvestmentInterface {
   details: {
     total: number;
@@ -18,6 +23,7 @@ export interface CalculatedInvestmentInterface {
   formData: FieldValues;
   chartData: SinglePieChartDataInterface[];
   inflationChartData: SinglePieChartDataInterface[];
+  totalExpenseRatioChartData: SingleLineChartDataInterface[];
 }
 
 export interface BuildInvestmentObjectInterface {
@@ -29,6 +35,8 @@ export interface BuildInvestmentObjectInterface {
   inflationRate: number;
   years: number;
   formData: FieldValues;
+  investmentYearsArr: number[];
+  investmentRoiAdjustedYearsArr: number[];
 }
 
 export interface CalculateInvestmentYearsInterface {
@@ -51,6 +59,10 @@ export interface DialogInterface {
 
 export interface PieChartInterface {
   data: SinglePieChartDataInterface[];
+}
+
+export interface LineChartInterface {
+  data: SingleLineChartDataInterface[];
 }
 
 export interface DetailsInterface {

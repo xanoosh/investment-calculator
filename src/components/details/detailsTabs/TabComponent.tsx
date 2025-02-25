@@ -76,24 +76,19 @@ export default function TabContent({
         ) : null}
         {value === 'ter' ? (
           <>
-            <TotalExpenseRatioChart />
+            <TotalExpenseRatioChart
+              data={investmentData.totalExpenseRatioChartData}
+            />
             <p className="text-slate-300 text-xs">
-              Approximate purchasing power of your investment after{' '}
-              <strong className="text-nowrap">
-                {investmentData.details.years}{' '}
-                {investmentData.details.years === 1 ? 'year' : 'years'}
-              </strong>
-              , assuming the inflation rate averages at{' '}
-              <strong>{investmentData.details.inflationRate}%</strong> per year.
+              Shows the influence that <strong>Total Expense Ratio</strong> has
+              on your investment over the years.
             </p>
           </>
         ) : null}
         {value === 'other' ? (
           <p className="text-white w-1/2 text-center">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque
-            molestias repellendus molestiae nesciunt consequuntur delectus
-            autem, tempore, minus nihil, illum dolor fugiat laborum voluptatem
-            at debitis placeat vero voluptatibus deleniti.
+            molestias repellendus molestiae nesciunt consequuntur.
           </p>
         ) : null}
       </motion.div>

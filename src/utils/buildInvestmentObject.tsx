@@ -9,6 +9,8 @@ export default function buildInvestmentObject({
   inflationRate,
   years,
   formData,
+  investmentYearsArr,
+  investmentRoiAdjustedYearsArr,
 }: BuildInvestmentObjectInterface) {
   const chartData = [
     {
@@ -56,5 +58,18 @@ export default function buildInvestmentObject({
     formData,
     chartData: chartData.filter(({ value }: { value: number }) => value > 0),
     inflationChartData,
+    totalExpenseRatioChartData: [
+      {
+        id: 'Investment Base Value',
+        data: investmentYearsArr.map((value, i) => ({ x: i, y: value })),
+      },
+      investmentRoiAdjustedYearsArr.length > 0 && {
+        id: 'ROI Adjusted Investment Value',
+        data: investmentRoiAdjustedYearsArr.map((value, i) => ({
+          x: i,
+          y: value,
+        })),
+      },
+    ],
   };
 }
