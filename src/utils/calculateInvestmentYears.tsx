@@ -12,8 +12,8 @@ export default function calculateInvestmentYears({
   let inflationAdjustedBase = initialInvestment;
   let totalInterest = 0;
   let interestYearValue = 0;
-  const investmentYearsArr = [0];
-  const investmentTerAdjustedYearsArr = [0];
+  const investmentYearsArr = [];
+  const investmentTerAdjustedYearsArr = [];
   let investmentArrEl = initialInvestment;
   let investmentTerArrEl = initialInvestment;
   for (let i = 0; i < years; i++) {

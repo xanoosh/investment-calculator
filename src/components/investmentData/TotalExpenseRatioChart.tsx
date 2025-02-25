@@ -3,9 +3,10 @@ import { useMedia } from 'react-use';
 import { ResponsiveLine } from '@nivo/line';
 import { LineChartInterface } from '../../interfaces';
 import { chartCustomTheme } from '../../globals/chartCustomTheme';
-
+import formatNumber from '../../utils/formatNumber';
 export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
   // const largeScreen = useMedia('(min-width: 1024px)');
+  const mediumScreen = useMedia('(max-width: 768px)');
   const mobileScreen = useMedia('(max-width: 500px)');
 
   return (
@@ -15,33 +16,27 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
         theme={chartCustomTheme}
         enableArea={true}
         colors={['rgb(255, 71, 133)', 'rgb(31, 138, 219)']}
-        margin={{ top: 0, right: 0, bottom: mobileScreen ? 30 : 50, left: 20 }}
+        margin={{
+          top: 10,
+          right: 10,
+          bottom: mobileScreen ? 30 : 50,
+          left: 10,
+        }}
         xScale={{ type: 'point' }}
         yScale={{
           type: 'linear',
           min: 0,
-          // max: data[0].data[Date.length - 1].y,
-          // stacked: true,
-          // reverse: false,
         }}
         yFormat=" >-.2f"
         axisTop={null}
         axisRight={null}
-        // axisBottom={null}
-        axisBottom={
-          mobileScreen
-            ? null
-            : {
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'years',
-                legendOffset: 36,
-                legendPosition: 'middle',
-                truncateTickAt: 0,
-              }
-        }
-        pointSize={10}
+        axisBottom={{
+          tickSize: 5,
+          tickPadding: 5,
+          format: mediumScreen ? () => '' : (val) => val,
+        }}
+        axisLeft={{ format: () => '' }}
+        pointSize={mobileScreen ? 5 : 10}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}
@@ -49,6 +44,37 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
         pointLabelYOffset={-12}
         enableTouchCrosshair={true}
         useMesh={true}
+        enableSlices="x"
+        sliceTooltip={({ slice }) => {
+          console.log('slice', slice);
+          const pointsArray = [...slice.points].reverse();
+          return (
+            <div className="bg-slate-700 text-white py-1 px-2 rounded">
+              <p className="text-sm mb-2 mt-1">
+                Year: {slice.points[0].data.xFormatted}
+              </p>
+              {pointsArray.map((point) => (
+                <div
+                  key={point.id}
+                  className="text-xs mb-2 flex flex-col gap-1"
+                >
+                  <div className="flex gap-2">
+                    <div
+                      className="w-4 h-4 rounded-full text-xs"
+                      style={{ backgroundColor: point.serieColor }}
+                    ></div>
+                    <p className="">{point.serieId}:</p>
+                  </div>
+                  <p className="font-semibold">
+                    {formatNumber(Number(point.data.y))}
+                  </p>
+                </div>
+              ))}
+            </div>
+          );
+        }}
+        // enableGridX={true}
+        // enableGridY={true}
       />
     </AspectRatioWrapper>
   );

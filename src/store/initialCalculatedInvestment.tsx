@@ -49,11 +49,11 @@ export const initialCalculatedInvestment = {
   ],
   totalExpenseRatioChartData: [
     {
-      id: 'Investment Base Value',
+      id: 'Investment Value',
       data: [{ x: 0, y: 0 }],
     },
     {
-      id: 'ROI Adjusted Investment Value',
+      id: 'TER Adjusted Value',
       data: [{ x: 0, y: 0 }],
     },
   ],

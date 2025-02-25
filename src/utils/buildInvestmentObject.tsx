@@ -60,13 +60,13 @@ export default function buildInvestmentObject({
     inflationChartData,
     totalExpenseRatioChartData: [
       {
-        id: 'Investment Base Value',
-        data: investmentYearsArr.map((value, i) => ({ x: i, y: value })),
+        id: 'Investment Value',
+        data: investmentYearsArr.map((value, i) => ({ x: i + 1, y: value })),
       },
       {
-        id: 'ROI Adjusted Investment Value',
+        id: 'TER Adjusted Value',
         data: investmentTerAdjustedYearsArr.map((value, i) => ({
-          x: i,
+          x: i + 1,
           y: value,
         })),
       },
