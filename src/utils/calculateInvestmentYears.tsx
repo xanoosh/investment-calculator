@@ -17,11 +17,11 @@ export default function calculateInvestmentYears({
   for (let i = 0; i < years; i++) {
     // investment & roi arr calc
     investmentYearsArr.push(
-      Math.round((investmentBase *= (100 + interestRate) / 100))
+      Math.round((investmentBase * (100 + interestRate)) / 100)
     );
     investmentRoiAdjustedYearsArr.push(
       Math.round(
-        (investmentBase *= (100 + interestRate - totalExpenseRatio) / 100)
+        (investmentBase * (100 + interestRate - totalExpenseRatio)) / 100
       )
     );
     //interest & base investment calc

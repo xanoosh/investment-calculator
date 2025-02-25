@@ -15,13 +15,13 @@ export default function Details({ investmentData }: DetailsInterface) {
   return (
     <Tabs.Root value={activeTab} onValueChange={(e) => setActiveTab(e)}>
       <Tabs.List className="flex gap-2 mb-5">
-        {tabsArray.map(({ title, value }) => (
-          <TabPill value={value} title={title} activeTab={activeTab} />
+        {tabsArray.map(({ title, value }, i) => (
+          <TabPill key={i} value={value} title={title} activeTab={activeTab} />
         ))}
       </Tabs.List>
-      {tabsArray.map(({ value }) => (
+      {tabsArray.map(({ value }, i) => (
         <TabContent
-          key={value}
+          key={i}
           value={value}
           investmentData={investmentData}
           className={
