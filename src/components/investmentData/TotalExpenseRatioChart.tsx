@@ -46,9 +46,9 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
         enableSlices="x"
         sliceTooltip={({ slice }) => {
           return (
-            <div className="bg-slate-700 text-white py-1 px-2 rounded">
-              <p className="text-sm mb-2 mt-1">
-                Year: {slice.points[0].data.xFormatted}
+            <div className="bg-slate-700 text-white py-2 px-3 rounded">
+              <p className="text-xs text-center text-slate-400 font-bold mb-2">
+                Year {slice.points[0].data.xFormatted}
               </p>
               {[...slice.points].reverse().map((point) => (
                 <div
@@ -60,11 +60,13 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
                       className="w-4 h-4 rounded-full text-xs"
                       style={{ backgroundColor: point.serieColor }}
                     ></div>
-                    <p className="">{point.serieId}:</p>
+                    <div className="flex gap-1 flex-col">
+                      <p className="">{point.serieId}:</p>
+                      <p className="font-semibold">
+                        {formatNumber(Number(point.data.y))}
+                      </p>
+                    </div>
                   </div>
-                  <p className="font-semibold">
-                    {formatNumber(Number(point.data.y))}
-                  </p>
                 </div>
               ))}
             </div>
