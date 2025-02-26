@@ -6,17 +6,19 @@ import Form from './components/form/Form';
 import * as Icons from '@radix-ui/react-icons';
 import { useCalculatedInvestmentStore } from './store/useCalculatedInvestmentStore';
 import { useToggleDialog } from './store/useToggleDialog';
+import { useMedia } from 'react-use';
 
 function App() {
   const calculatedInvestment = useCalculatedInvestmentStore(
     (state) => state.calculatedInvestment
   );
   const dialogOpen = useToggleDialog((state) => state.dialogOpen);
+  const mobileScreen = useMedia('(max-width: 500px)');
 
   return (
     <FocusTrap
       focusTrapOptions={{ allowOutsideClick: true }}
-      active={!dialogOpen}
+      active={mobileScreen ? false : !dialogOpen}
     >
       <main className="flex flex-col items-center justify-around min-h-screen sm:pt-4 pt-2 p-2 sm:pb-2 pb-0 sm:gap-4 gap-2 bg-slate-800">
         <div className="text-white text-center">
