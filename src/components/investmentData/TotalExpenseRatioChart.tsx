@@ -45,14 +45,12 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
         useMesh={true}
         enableSlices="x"
         sliceTooltip={({ slice }) => {
-          console.log('slice', slice);
-          const pointsArray = [...slice.points].reverse();
           return (
             <div className="bg-slate-700 text-white py-1 px-2 rounded">
               <p className="text-sm mb-2 mt-1">
                 Year: {slice.points[0].data.xFormatted}
               </p>
-              {pointsArray.map((point) => (
+              {[...slice.points].reverse().map((point) => (
                 <div
                   key={point.id}
                   className="text-xs mb-2 flex flex-col gap-1"
