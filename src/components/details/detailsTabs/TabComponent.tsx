@@ -87,8 +87,7 @@ export default function TabContent({
         ) : null}
         {value === 'other' ? (
           <p className="text-white w-1/2 text-center">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque
-            molestias repellendus molestiae nesciunt consequuntur.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </p>
         ) : null}
       </motion.div>

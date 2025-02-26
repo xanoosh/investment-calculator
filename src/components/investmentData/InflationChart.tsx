@@ -24,7 +24,7 @@ export default function InflationChart({ data }: PieChartInterface) {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
-        colors={['#4ecdc4', '#f79d84']}
+        colors={['rgba(31, 138, 219,.7)', 'rgba(255, 71, 133,.7)']}
         borderColor={{
           from: 'color',
           modifiers: [['darker', 0.2]],

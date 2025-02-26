@@ -1,4 +1,4 @@
-export const chartCustomTheme = {
+export const whiteLineChartTheme = {
   background: 'transparent',
   text: {
     fontSize: 11,

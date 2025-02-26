@@ -2,10 +2,9 @@ import AspectRatioWrapper from '../AspectRatioWrapper';
 import { useMedia } from 'react-use';
 import { ResponsiveLine } from '@nivo/line';
 import { LineChartInterface } from '../../interfaces';
-import { chartCustomTheme } from '../../globals/chartCustomTheme';
+import { whiteLineChartTheme } from '../../globals/whiteLineChartTheme';
 import formatNumber from '../../utils/formatNumber';
 export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
-  // const largeScreen = useMedia('(min-width: 1024px)');
   const mediumScreen = useMedia('(max-width: 768px)');
   const mobileScreen = useMedia('(max-width: 500px)');
 
@@ -13,9 +12,9 @@ export default function TotalExpenseRatioChart({ data }: LineChartInterface) {
     <AspectRatioWrapper ratio={mobileScreen ? 16 / 12 : 16 / 6}>
       <ResponsiveLine
         data={data}
-        theme={chartCustomTheme}
+        theme={whiteLineChartTheme}
         enableArea={true}
-        colors={['rgb(255, 71, 133)', 'rgb(31, 138, 219)']}
+        colors={['rgb(31, 138, 219)', 'rgb(255, 71, 133)']}
         margin={{
           top: 10,
           right: 10,
