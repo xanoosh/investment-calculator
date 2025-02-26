@@ -24,8 +24,7 @@ export default function InflationChart({ data }: PieChartInterface) {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
-        colors={['rgba(31, 138, 219,0.8)', 'rgba(255, 71, 133,0.8)']}
-        arcLabelsTextColor={'#fff'}
+        colors={['#57a5e0', '#ff86ae']}
         borderColor={{
           from: 'color',
           modifiers: [['darker', 0.2]],
