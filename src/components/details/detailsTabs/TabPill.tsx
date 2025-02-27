@@ -7,7 +7,7 @@ export default function TabPill({ value, title, activeTab }: TabPillInterface) {
     <Tabs.Trigger value={value} asChild key={value}>
       <button
         key={value}
-        className="p-2 relative text-white cursor-pointer hover:text-sky-300 data-[state=active]:text-sky-400"
+        className="p-2 relative rounded text-white cursor-pointer hover:text-sky-300 data-[state=active]:text-sky-400 focus:outline-none"
         style={{
           WebkitTapHighlightColor: 'transparent',
         }}

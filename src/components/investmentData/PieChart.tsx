@@ -22,10 +22,6 @@ export default function PieChart({ data }: PieChartInterface) {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
-        // colors={['#bde0fe', '#ffc8dd', '#cdb4db']}
-        // colors={['#57a5e0', '#ff86ae', '#F5EC87']}
-        // colors={['#57a5e0', '#ff86ae', '#E9F6A0']}
-        // colors={['#57a5e0', '#ff86ae', '#F5E183']}
         colors={['#57a5e0', '#ff86ae', '#F5CF79']}
         borderColor={{
           from: 'color',

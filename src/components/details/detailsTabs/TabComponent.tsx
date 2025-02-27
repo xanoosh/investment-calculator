@@ -11,7 +11,7 @@ export default function TabContent({
   investmentData,
 }: TabContentInterface) {
   return (
-    <Tabs.Content value={value} asChild>
+    <Tabs.Content value={value} asChild className="rounded focus:outline-none">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
